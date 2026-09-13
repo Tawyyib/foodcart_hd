@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Foodcart Stores – Interactive Mockup</title>
+        <link rel="stylesheet" href="assets/hd_mockup.css?v=2">
+        <script src="assets/mockup-4.js?v=2"></script>    
+    </head>
+
+    <div id="header-placeholder" class=" sticky-top"></div>
+
+        <main class="main" >
+
+            <!-- ============================================ -->
+            <!-- PAGE: CART -->
+            <!-- ============================================ -->
+            <div class="page-content">
+
+                <div class="page-content-inner container">
+
+                    <h2 class="page-title">Cart</h2>
+
+                    <div id="cart-grid-container" class="cart-grid">
+
+                        <!-- CART ITEMS COLUMN -->
+                        <div id="cart-items" class="cart-items">
+
+                            <div id="cart-list" class="cart-list">
+
+                                <!-- Dynamically populated via JavaScript -->
+
+                            </div>
+                            
+                            <!-- Dynamic Free Delivery Progress Bar -->
+                            <div id="free-shipping-container" class="shipping-progress-banner">
+                                <!-- Dynamically populated via JavaScript -->
+                            </div>      
+
+                        </div>
+
+                        <!-- CART SUMMARY COLUMN -->
+                        <div class="cart-total">
+
+                            <div class="cart-subtotal">
+                                <span>Subtotal:</span>
+                                <span id="cart-subtotal-display">₦0</span>
+                            </div>
+                            
+                            <div class="cart-shipping">
+                                <span>Delivery (Ikeja LGA):</span>
+                                <span id="delivery-fee-display">₦700</span>
+                            </div>
+
+                            <div class="total">
+                                <span>Total:</span>
+                                <span id="cart-total-display">₦0</span>
+                            </div>
+
+                            <a href="checkout.html" id="checkoutBtn" class="btn btn-green cart-checkout">Proceed to Checkout →</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <!-- A single, reusable script -->
+    <script src="loader.js"></script>
+
+</html>    

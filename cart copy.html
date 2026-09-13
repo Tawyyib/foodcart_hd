@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Foodcart Stores – Interactive Mockup</title>
+        <link rel="stylesheet" href="assets/mockup.css?v=2">
+        <script src="assets/mockup-2.js?v=2"></script>    
+    </head>
+
+    <div id="header-placeholder" class=" sticky-top"></div>
+
+        <main class="main" >
+
+            <!-- ============================================ -->
+            <!-- PAGE: CART -->
+            <!-- ============================================ -->
+            <div class="page-content">
+
+                <div class="page-content-inner container">
+
+                    <h2 class="page-title">Basket</h2>
+
+                    <div class="cart-grid">
+
+                        <div class="cart-items">
+
+                            <table class="cart-table">
+                                <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th><th></th></tr></thead>
+                                <tbody>
+                                    <tr><td>🍚 NutraGold Rice (5kg)</td><td>₦7,000</td><td><input type="number" value="2" style="width:60px; padding:6px; border:1px solid #e2e8f0; border-radius:6px;"></td><td>₦14,000</td><td><span style="color:#dc2626; cursor:pointer;">✕</span></td></tr>
+                                    <tr><td>🫘 NutraGold Honey Beans (Jumbo)</td><td>₦83,000</td><td><input type="number" value="1" style="width:60px; padding:6px; border:1px solid #e2e8f0; border-radius:6px;"></td><td>₦83,000</td><td><span style="color:#dc2626; cursor:pointer;">✕</span></td></tr>
+                                </tbody>
+                            </table>
+
+                            <div style="background:#f8fafc; padding:16px; border-radius:8px; margin:12px 0; border:1px solid #e2e8f0;">
+                                🎯 <strong>Add ₦53,000 more</strong> to qualify for <strong>Free Delivery</strong> within Lagos.
+                                <div style="height:8px; background:#e2e8f0; border-radius:4px; margin-top:8px;"><div style="width:45%; height:8px; background:#16a34a; border-radius:4px;"></div></div>
+                            </div>      
+
+                        </div>
+
+                        <div class="cart-total">
+                            <div style="display:flex; justify-content:space-between; max-width:400px; margin-left:auto;">
+                                <span>Subtotal:</span><span>₦97,000</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; max-width:400px; margin-left:auto; color:#64748b;">
+                                <span>Delivery (Ikeja LGA):</span><span>₦700</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; max-width:400px; margin-left:auto; font-size:1.8rem; font-weight:700; border-top:2px solid #e2e8f0; padding-top:12px; margin-top:8px;">
+                                <span>Total:</span><span>₦97,700</span>
+                            </div>
+                            <a href="checkout.html" class="btn btn-green" style="margin-top:16px; padding:12px 40px;" onclick="document.getElementById('page-checkout').checked=true">Proceed to Checkout →</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <!-- A single, reusable script -->
+    <script src="loader.js"></script>
+
+</html>    
