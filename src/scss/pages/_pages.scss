@@ -1,0 +1,23 @@
+// ============================================
+// GENERAL PAGES STYLES
+// ============================================
+.page-content {
+  padding: 3.25rem var(--spacing-base);
+
+  @media screen and (min-width: 428px) {
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;    
+  }
+
+  @media screen and (min-width: 640px) {
+    padding-right: 2.75rem;
+    padding-left: 2.75rem;        
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+}

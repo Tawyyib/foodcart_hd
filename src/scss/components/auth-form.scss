@@ -1,0 +1,175 @@
+// ============================================
+// AUTH FORM
+// ============================================
+.auth-form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  @media (min-width: 992px) {
+    flex-basis: 45%;
+  }
+}
+
+.auth-form .form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// ============================================
+// FORM ROW (side-by-side fields)
+// ============================================
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+
+  @media (min-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// ============================================
+// LABELS
+// ============================================
+.auth-label {
+  display: block;
+
+  font-family: var(--font-family-ui);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: 4px;
+
+  a {
+    color: var(--color-green);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.required {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+// ============================================
+// INPUTS
+// ============================================
+.auth-input,
+.auth-textarea,
+.input-selector {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-text);
+
+  background: var(--color-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px var(--color-green-tint);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+}
+
+.auth-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.input-selector {
+  appearance: auto;
+  -webkit-appearance: auto;
+  cursor: pointer;
+}
+
+// ---- Helper note below input ----
+.input-note {
+  display: block;
+  margin-top: 4px;
+
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+// ============================================
+// CHECKBOX ROW
+// ============================================
+.check-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+
+  input[type="checkbox"] {
+    appearance: auto;
+    -webkit-appearance: auto;
+
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+
+    accent-color: var(--color-green);
+    cursor: pointer;
+  }
+
+  label {
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    color: var(--color-text-light);
+    cursor: pointer;
+    margin: 0;
+  }
+
+}
+
+// ============================================
+// FORM META (Remember + Forgot on same row)
+// ============================================
+.form-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+// ============================================
+// FORM HINT TEXT
+// ============================================
+.auth-form > p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin: 0;
+}

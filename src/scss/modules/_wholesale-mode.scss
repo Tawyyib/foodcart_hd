@@ -1,0 +1,121 @@
+// ============================================
+// WHOLESALE MODE
+// ============================================
+// Toggles between retail and wholesale states
+// by adding/removing body classes:
+//   - body.mode-wholesale          (user is a wholesaler)
+//   - body.wholesale-mode-active   (view is currently wholesale)
+// ============================================
+
+// ---- Logged-in state display toggles ----
+#profile-logged-out,
+#profile-logged-in {
+  display: inline-flex;
+}
+
+// ---- Hide wholesale elements by default ----
+.product-card.wholesale,
+.price.wholesale,
+select.wholesale,
+.variant-unit-price.wholesale,
+.qty-count.wholesale,
+.attr-pill.wholesale,
+.stock-wholesale,
+.moq,
+.delivery-note.wholesale {
+  display: none !important;
+}
+
+// ---- When wholesale is active: hide retail, show wholesale ----
+body.wholesale-mode-active {
+  .product-card.retail,
+  .price.retail,
+  .wholesale-prompt,
+  .proposition-cta,
+  .proposition-divider,
+  .select.retail,
+  .variant-unit-price.retail,
+  .qty-count.retail,
+  .stock-retail,
+  .delivery-note.retail,
+  #profile-logged-out {
+    display: none !important;
+  }
+
+  .product-card.wholesale,
+  .price.wholesale,
+  select.wholesale,
+  .variant-unit-price.wholesale,
+  .qty-count.wholesale,
+  .attr-pill.wholesale,
+  .stock-wholesale,
+  .moq,
+  .delivery-note.wholesale,
+  #profile-logged-in {
+    display: flex !important;
+  }
+
+  /* must come AFTER the rule above, and be at least as specific */
+  .product-card.is-hidden { display: none !important; }
+
+  // Header status pill
+  .pricing-status-pill {
+    background: var(--color-green-tint);
+    border-color: var(--color-green);
+    color: var(--color-green);
+
+    .status-dot {
+      background: var(--color-green);
+      box-shadow: 0 0 8px var(--color-green);
+    }
+    
+  }
+
+}
+
+// ---- Wholesale accent mode ----
+body.mode-wholesale {
+  --color-mode-accent: var(--color-green);
+  --color-mode-accent-text: var(--color-white);
+}
+
+// ---- Hero visibility based on user type ----
+body.is-retail-user {
+  .hero-guest-split { display: none !important; }
+  .hero-user-retail { display: block !important; }
+}
+
+body.is-wholesale-user {
+  .hero-guest-split { display: none !important; }
+  .hero-user-wholesale { display: block !important; }
+}
+
+/* ============================================
+   BUYER-TIER VISIBILITY
+   ============================================ */
+
+/* Bulk chips hidden from guests */
+body.is-guest .weight-chip[data-visibility="registered"],
+body.is-guest .weight-chip[data-visibility="wholesale"] {
+  display: none;
+}
+
+body.is-guest .product-card[data-visibility="registered"],
+body.is-guest .product-card[data-visibility="wholesale"] {
+  display: none;
+}
+
+body.is-retail .weight-chip[data-visibility="wholesale"] {
+  display: none;
+}
+
+body.is-retail .product-card[data-visibility="wholesale"] {
+  display: none;
+}
+
+/* Price visibility by tier (extends existing rules) */
+body.is-guest .price.wholesale,
+body.is-guest .price.discounted-retail,
+body.is-retail .price.wholesale {
+  display: none;
+}

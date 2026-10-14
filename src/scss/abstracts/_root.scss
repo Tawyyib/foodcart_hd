@@ -1,0 +1,336 @@
+// ============================================
+// ROOT — DERIVED VARIANTS + THEME TOKENS
+// ============================================
+@use 'sass:color';
+@use 'variables' as *;
+
+// ============================================
+// LIGHT MODE (Default)
+// ============================================
+:root {
+  // ============================================
+  // TIER 1: BRAND PALETTE (theme-agnostic)
+  // ============================================
+  --color-primary:        #{$color-primary};
+  --color-primary-light:  #{$color-green};
+  --color-green:          #{$color-mid-green};
+  --color-yellow:         #{$color-yellow};
+  --color-orange:         #{$color-orange};
+  --color-white:          #{$color-white};
+  --color-black:          #{$color-black};
+
+  // ---- Derived hover states ----
+  --color-primary-hover:       #{color.adjust($color-primary, $lightness: -8%)};
+  --color-primary-light-hover: #{color.adjust($color-green, $lightness: -6%)};
+  --color-green-hover:         #{color.adjust($color-mid-green, $lightness: -8%)};
+  --color-yellow-hover:        #{color.adjust($color-yellow, $lightness: -8%)};
+  --color-orange-hover:        #{color.adjust($color-orange, $lightness: -5%)};
+
+  // ---- Derived tints ----
+  --color-primary-tint:  #{rgba($color-primary, 0.08)};
+  --color-green-tint:    #{rgba($color-mid-green, 0.12)};
+  --color-yellow-tint:   #{rgba($color-yellow, 0.15)};
+  --color-orange-tint:   #{rgba($color-orange, 0.12)};
+
+  // ============================================
+  // TIER 2: SEMANTIC UI TOKENS (Light Mode)
+  // ============================================
+
+  // ---- Logo & Brand Marks ----
+  --color-logo-mark:      #{$color-mid-green};    // Site brand logo mark
+  --color-text-mark:      #{$color-primary};      // Site brand text mark
+
+  // ---- Buttons & Icons ----
+  --color-header-buttons:       #{$color-primary};
+  --color-header-buttons-hover: #{color.adjust($color-mid-green, $lightness: -10%)};
+  --color-utility: #{$color-orange};
+  // --color-utility-hover: #{color.adjust($color-orange, $lightness: -6.5%)};
+  --color-sprite: var(--color-primary-light);
+  // --color-sprite-hover: #{color.adjust($color-orange, $lightness: -6.5%)};
+
+  // ---- Search Bar ----
+  --color-search:        #{color.adjust($color-surface-light, $lightness: 2.5%)};
+  --color-search-focus:  #{color.adjust($color-surface-light, $lightness: 5%)};
+  --color-search-btn:        #{$color-primary};
+  --color-search-btn-hover:  #{color.adjust($color-mid-green, $lightness: -10%)};
+  --color-search-icon:       #{$color-green};
+  --color-search-icon-hover: #{color.adjust($color-yellow, $lightness: 14%)};
+
+  // ---- Surfaces ----
+  --color-background:       #{$color-bg-light};
+  --color-surface:          #{$color-surface-light};
+  --color-surface-elevated: #{$color-surface-light};
+  --color-input:            #{color.adjust($color-surface-light, $lightness: 2%)};
+  
+      --color-picture-bg: #{$color-picture-light};
+
+  // ---- Borders ----
+  --color-border:        #{$color-border-light};
+  --color-border-strong: #{color.adjust($color-border-light, $lightness: -10%)};
+  --color-border-alt: #{color.adjust($color-border-dark, $lightness: -10%)};
+  --color-border-strong-alt:        #{$color-border-dark};
+
+  // ---- Text ----
+  --color-text:         #{$color-text-light};
+  --color-text-light:   #{$color-text-muted-light};
+  --color-text-muted:   #{color.adjust($color-text-muted-light, $lightness: 20%)};
+  --color-heading:      #{$color-primary};
+  --color-text-inverse: #{$color-white};
+
+  // ============================================
+  // TIER 3: STATUS COLORS
+  // ============================================
+  --color-success:      #{$color-success};
+  --color-success-bg:   #{rgba($color-success, 0.12)};
+  --color-success-text: #{color.adjust($color-success, $lightness: -30%)};
+
+  --color-warning:      #{$color-warning};
+  --color-warning-bg:   #{rgba($color-warning, 0.15)};
+  --color-warning-text: #{color.adjust($color-warning, $lightness: -35%)};
+
+  --color-danger:       #{$color-danger};
+  --color-danger-bg:    #{rgba($color-danger, 0.12)};
+  --color-danger-text:  #{color.adjust($color-danger, $lightness: -30%)};
+
+  // ============================================
+  // TIER 4: TYPOGRAPHY
+  // ============================================
+  --font-family-brand:    #{$font-family-brand};
+  --font-family-ui:       #{$font-family-ui};
+  --font-weight-normal:   #{$font-weight-normal};
+  --font-weight-medium:   #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold:     #{$font-weight-bold};
+
+  --font-size-xs:   #{$font-size-xs};
+  --font-size-sm:   #{$font-size-sm};
+  --font-size-md:   #{$font-size-md};
+  --font-size-base: #{$font-size-base};
+  --font-size-lg:   #{$font-size-lg};
+  --font-size-xl:   #{$font-size-xl};
+  --font-size-2xl:  #{$font-size-2xl};
+  --font-size-3xl:  #{$font-size-3xl};
+
+  // ============================================
+  // TIER 5: SPACING & RADIUS
+  // ============================================
+  --spacing-xs:  #{$spacing-xs};
+  --spacing-sm:  #{$spacing-sm};
+  --spacing-md:  #{$spacing-md};
+  --spacing-base:  #{$spacing-base};
+  --spacing-lg:  #{$spacing-lg};
+  --spacing-xl:  #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  --spacing-3xl: #{$spacing-3xl};
+
+  --radius-xs:   #{$radius-xs};
+  --radius-sm:   #{$radius-sm};
+  --radius-md:   #{$radius-md};
+  --radius-lg:   #{$radius-lg};
+  --radius-xl:   #{$radius-xl};
+  --radius-full: #{$radius-full};
+
+  // ============================================
+  // TIER 6: SHADOWS
+  // ============================================
+  --shadow-card:     0 4px 12px #{rgba($color-primary, 0.06)};
+  --shadow-hover:    0 8px 24px #{rgba($color-primary, 0.12)};
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  // ============================================
+  // TIER 7: TRANSITIONS
+  // ============================================
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+
+  // ============================================
+  // TIER 8: BREAKPOINTS
+  // ============================================
+  --bp-xs: #{$bp-xs};
+  --bp-sm: #{$bp-sm};
+  --bp-md: #{$bp-md};
+  --bp-lg: #{$bp-lg};
+  --bp-xl: #{$bp-xl};
+
+  // ============================================
+  // TIER 9: LAYOUT
+  // ============================================
+  --container-max: #{$container-max};
+
+  // ============================================
+  // TIER 10: MODE ACCENT
+  // ============================================
+  --color-mode-accent:      #{$color-border-light};
+  --color-mode-accent-text: #{$color-text-muted-light};
+}
+
+// ============================================
+// DARK MODE OVERRIDES
+// ============================================
+[data-theme="dark"] {
+  // ---- Derived hover states (lighten in dark mode) ----
+  --color-primary-hover:       #{color.adjust($color-primary, $lightness: 12%)};
+  --color-primary-light-hover: #{color.adjust($color-green, $lightness: 8%)};
+  --color-green-hover:         #{color.adjust($color-mid-green, $lightness: 10%)};
+  --color-yellow-hover:        #{color.adjust($color-yellow, $lightness: 8%)};
+  --color-orange-hover:        #{color.adjust($color-orange, $lightness: 10%)};
+
+  // ---- Tints (brighter for dark backgrounds) ----
+  --color-primary-tint:  #{rgba($color-green, 0.12)};
+  --color-green-tint:    #{rgba($color-mid-green, 0.2)};
+  --color-yellow-tint:   #{rgba($color-yellow, 0.2)};
+  --color-orange-tint:   #{rgba($color-orange, 0.2)};
+
+  // ---- Semantic UI: Logo & Brand ----
+  --color-logo-mark:      #{$color-green};        // Brighter lime in dark
+  --color-text-mark:      #{$color-white};        // White text in dark
+
+  // ---- Semantic UI: Header ----
+  --color-header-buttons:       #{$color-green};  // Brighter for dark bg
+  --color-header-buttons-hover: #{$color-yellow};
+  --color-utility: #{$color-orange};
+  // --color-utility-hover: #{$color-orange};
+  --color-sprite: var(--color-green);
+  // --color-sprite-hover: var(--color-primary-light);
+
+  // ---- Semantic UI: Search ----
+  --color-search:        #{$color-surface-dark};
+  --color-search:  #{color.adjust($color-surface-dark, $lightness: -5%)};
+  --color-search-focus:  #{color.adjust($color-surface-dark, $lightness: -2.5%)};
+  --color-search-btn:        #{$color-green};
+  --color-search-btn-hover:  #{$color-yellow};
+  --color-search-icon:       #{color.adjust($color-primary, $lightness: 8%)};
+  --color-search-icon-hover: #{$color-primary};
+
+  // ---- Surfaces ----
+  --color-background:       #{$color-bg-dark};
+  --color-surface:          #{$color-surface-dark};
+  --color-surface-elevated: #{color.adjust($color-surface-dark, $lightness: 5%)};
+  --color-input:            #{color.adjust($color-surface-dark, $lightness: -3%)};
+
+  --color-picture-bg: #{$color-picture-dark};
+
+  // ---- Borders ----
+  --color-border:        #{$color-border-dark};
+  --color-border-strong: #{color.adjust($color-border-dark, $lightness: 10%)};
+  --color-border-alt: #{color.adjust($color-border-dark, $lightness: 10%)};
+  --color-border-strong-alt:        #{$color-border-light};
+
+  // ---- Text ----
+  --color-text:         #{$color-text-dark};
+  --color-text-light:   #{$color-text-muted-dark};
+  --color-text-muted:   #{color.adjust($color-text-muted-dark, $lightness: -15%)};
+  --color-heading:      #{$color-white};
+  --color-text-inverse: #{$color-primary};
+
+  // ---- Status ----
+  --color-success-bg:   #{rgba($color-success, 0.2)};
+  --color-success-text: #{$color-green};
+  --color-warning-bg:   #{rgba($color-warning, 0.15)};
+  --color-warning-text: #{$color-yellow};
+  --color-danger-bg:    #{rgba($color-danger, 0.2)};
+  --color-danger-text:  #{color.adjust($color-danger, $lightness: 20%)};
+
+  // ---- Shadows ----
+  --shadow-card:     0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-hover:    0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+// ============================================
+// AUTOMATIC OS PREFERENCE DARK MODE FALLBACK
+// ============================================
+
+// Apply dark mode ONLY when OS prefers dark AND user hasn't overridden
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      
+      // ---- Derived hover states (lighten in dark mode) ----
+      --color-primary-hover:       #{color.adjust($color-primary, $lightness: 12%)};
+      --color-primary-light-hover: #{color.adjust($color-green, $lightness: 8%)};
+      --color-green-hover:         #{color.adjust($color-mid-green, $lightness: 10%)};
+      --color-yellow-hover:        #{color.adjust($color-yellow, $lightness: 8%)};
+      --color-orange-hover:        #{color.adjust($color-orange, $lightness: 10%)};
+
+      // ---- Tints (brighter for dark backgrounds) ----
+      --color-primary-tint:  #{rgba($color-green, 0.12)};
+      --color-green-tint:    #{rgba($color-mid-green, 0.2)};
+      --color-yellow-tint:   #{rgba($color-yellow, 0.2)};
+      --color-orange-tint:   #{rgba($color-orange, 0.2)};
+
+      // ---- Semantic UI: Logo & Brand ----
+      --color-logo-mark:      #{$color-green};        // Brighter lime in dark
+      --color-text-mark:      #{$color-white};        // White text in dark
+
+      // ---- Semantic UI: Header ----
+      --color-header-buttons:       #{$color-green};  // Brighter for dark bg
+      --color-header-buttons-hover: #{$color-yellow};
+      --color-utility: #{$color-orange};
+      // --color-utility-hover: #{$color-orange};
+      --color-sprite: var(--color-green);
+      // --color-sprites-hover: var(--color-primary-light);
+
+      // ---- Semantic UI: Search ----
+      --color-search-btn:        #{$color-green};
+      --color-search-btn-hover:  #{$color-yellow};
+      --color-search-icon:       #{color.adjust($color-primary, $lightness: 8%)};
+      --color-search-icon-hover: #{$color-primary};
+
+      // ---- Surfaces ----
+      --color-background:       #{$color-bg-dark};
+      --color-surface:          #{$color-surface-dark};
+      --color-surface-elevated: #{color.adjust($color-surface-dark, $lightness: 5%)};
+      --color-input:            #{color.adjust($color-surface-dark, $lightness: -3%)};
+  
+      --color-picture-bg: #{$color-picture-dark};
+
+      // ---- Borders ----
+      --color-border:        #{$color-border-dark};
+      --color-border-strong: #{color.adjust($color-border-dark, $lightness: 10%)};
+      --color-border-alt: #{color.adjust($color-border-dark, $lightness: 10%)};
+      --color-border-strong-alt:        #{$color-border-light};
+
+      // ---- Text ----
+      --color-text:         #{$color-text-dark};
+      --color-text-light:   #{$color-text-muted-dark};
+      --color-text-muted:   #{color.adjust($color-text-muted-dark, $lightness: -15%)};
+      --color-heading:      #{$color-white};
+      --color-text-inverse: #{$color-primary};
+
+      // ---- Status ----
+      --color-success-bg:   #{rgba($color-success, 0.2)};
+      --color-success-text: #{$color-green};
+      --color-warning-bg:   #{rgba($color-warning, 0.15)};
+      --color-warning-text: #{$color-yellow};
+      --color-danger-bg:    #{rgba($color-danger, 0.2)};
+      --color-danger-text:  #{color.adjust($color-danger, $lightness: 20%)};
+
+      // ---- Shadows ----
+      --shadow-card:     0 4px 12px rgba(0, 0, 0, 0.35);
+      --shadow-hover:    0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.6);
+      
+  }
+}      
+
+// ============================================
+// WHOLESALE MODE ACCENT
+// ============================================
+body.mode-wholesale {
+  --color-mode-accent:      #{$color-mid-green};
+  --color-mode-accent-text: #{$color-white};
+}
+
+// ============================================
+// PRELOAD TRANSITION DISABLE
+// ============================================
+.preload *,
+.preload *::before,
+.preload *::after {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}

@@ -4,8 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Foodcart Stores – Interactive Mockup</title>
-        <link rel="stylesheet" href="assets/hd_mockup.css?v=2">
-        <script src="assets/mockup-4.js?v=2"></script>    
+        <!--<link rel="stylesheet" href="assets/hd_mockup.css?v=2">-->
+        <link rel="stylesheet" href="assets/fonteawesome-6.5.2-all.min.css" media="all">
+        <!--<script src="assets/mockup-4.js?v=2"></script>-->
+        <script type="module" src="/src/js/foodcart_hd.js"></script>
     </head>
 
     <div id="header-placeholder" class=" sticky-top"></div>
@@ -26,10 +28,8 @@
                         <!-- CART ITEMS COLUMN -->
                         <div id="cart-items" class="cart-items">
 
-                            <div id="cart-list" class="cart-list">
-
+                            <div id="cart-items-list" class="cart-items-list">
                                 <!-- Dynamically populated via JavaScript -->
-
                             </div>
                             
                             <!-- Dynamic Free Delivery Progress Bar -->
@@ -42,22 +42,164 @@
                         <!-- CART SUMMARY COLUMN -->
                         <div class="cart-total">
 
-                            <div class="cart-subtotal">
-                                <span>Subtotal:</span>
-                                <span id="cart-subtotal-display">₦0</span>
-                            </div>
-                            
-                            <div class="cart-shipping">
-                                <span>Delivery (Ikeja LGA):</span>
-                                <span id="delivery-fee-display">₦700</span>
+                            <!-- items subtotal -->
+                            <div class="cart-row cart-subtotal">
+                                <span class="line-label">Subtotal:</span>
+                                <span id="cart-subtotal-display" class="line-value">₦ 0</span>
                             </div>
 
+                            <!-- shipping costs component -->
+                            <div class="cart-shipping-group">
+
+                                <div class="cart-row cart-shipping-fee">
+                                    <span class="line-label">Shipping Fee:</span>
+                                    <span id="delivery-fee-display" class="line-value is-pending"> -- </span>
+                                </div>
+
+                                <!-- Shipping Location Summary/Update -->
+                                <div class="cart-row cart-shipping-dest">
+                                    <span class="line-label">Destination:</span>
+                                    <span class="line-value is-empty">
+                                        <span id="cart-shipping-destination" class="set-destination is-hidden">
+                                            Ogba, Ikeja
+                                        </span>
+                                        <button
+                                            type="button"
+                                            id="pick-destination"
+                                            class="pick-destination"
+                                            data-action="toggle-ship-to"
+                                            aria-expanded="false"
+                                            aria-controls="shipToForm"
+                                        >
+                                            Select a destination.
+                                        </button>
+                                    </span>
+                                </div>
+
+                                <!-- Shipping Determinants -->
+                                <div class="shipping-calc">
+
+                                    <div id="shipToForm" class="ship-to" hidden>
+
+                                        <!-- Suburb -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="cart-shipping-suburb">
+                                                Suburb/Town
+                                                <span class="required">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="cart-shipping-suburb"
+                                                name="cart_shipping_suburb"
+                                                class="input-field"
+                                                placeholder="e.g. Ijeshatedo"
+                                                value=""
+                                                autocomplete="address-level3"
+                                                required
+                                            >
+                                        </div>
+
+                                        <!-- LGA -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="cart-shipping-lga">
+                                                LGA
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="select-wrap">
+                                                <select id="cart-shipping-lga" class="input-selector" required>
+                                                    <option value="" selected>-- Select Local Government Area --</option>
+                                                    <option value="agege">Agege</option>
+                                                    <option value="ajeromi-ifelodun">Ajeromi/Ifelodun</option>
+                                                    <option value="alimosho">Alimosho</option>
+                                                    <option value="apapa">Apapa</option>
+                                                    <option value="amuwo-odofin">Amuwo Odofin</option>
+                                                    <option value="badagry">Badagry</option>
+                                                    <option value="eti-osa">Eti-Osa (Lekki/VI)</option>
+                                                    <option value="epe">Epe</option>
+                                                    <option value="ibeju-lekki">Ibeju-Lekki</option>
+                                                    <option value="ifako-ijaye">Ifako-Ijaye</option>
+                                                    <option value="ikeja">Ikeja</option>
+                                                    <option value="ikorodu">Ikorodu</option>
+                                                    <option value="kosofe">Kosofe</option>
+                                                    <option value="lagos-island">Lagos Island</option>
+                                                    <option value="lagos-mainland">Lagos Mainland</option>
+                                                    <option value="mushin">Mushin</option>
+                                                    <option value="oshodi-isolo">Oshodi-Isolo</option>
+                                                    <option value="ojo">Ojo</option>
+                                                    <option value="somolu">Somolu</option>
+                                                    <option value="surulere">Surulere</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Method -->
+                                        <div class="input-wrap">
+
+                                            <label class="input-label" for="cart-shipping-method">
+                                                Method/Speed
+                                                <span class="required">*</span>
+                                            </label>
+
+                                            <div class="shipping-selector">
+
+                                                <select id="cart-shipping-method" class="input-selector" required>
+                                                    <option value="">-- Select a Shipping Mehtod --</option>
+                                                    <option value="express">Express (Same-Day)</option>
+                                                    <option value="standard">Standard (3-5 days)</option>
+                                                    <option value="pickup" selected>Self Pickup (0-2 days)</option>
+                                                </select>
+
+                                                <button
+                                                    type="button"
+                                                    class="shipping-options"
+                                                    aria-haspopup="listbox"
+                                                    aria-expanded="false"
+                                                >
+                                                    <span class="option-icon">
+                                                        <span class="fa-solid fa-rocket" aria-hidden="true"></span>
+                                                    </span>
+                                                    <span class="option-content">
+                                                        <span class="option-label">Express</span>
+                                                        <span class="option-desc">Same-Day Delivery</span>
+                                                    </span>
+                                                    <span class="fa-solid fa-chevron-down option-arrow" aria-hidden="true"></span>
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Clear Buttpn -->
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary clear-shipping is-hidden"
+                                            data-action="clear-shipping"                                        
+                                        >
+                                            Clear
+                                        </button>
+                                        
+                                        <!-- Footnote -->
+                                        <p class="shipping-save-note">
+                                            <span class="fa-solid fa-circle-info" aria-hidden="true"></span>
+                                            Changes save automatically
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- final cost summary -->
                             <div class="total">
                                 <span>Total:</span>
                                 <span id="cart-total-display">₦0</span>
                             </div>
 
-                            <a href="checkout.html" id="checkoutBtn" class="btn btn-green cart-checkout">Proceed to Checkout →</a>
+                            <a href="checkout.html" id="checkout-btn" class="btn btn-green cart-checkout">
+                                Proceed to Checkout
+                                <span class="fa-solid fa-arrow-right" aria-hidden="true"></span>
+                            </a>
 
                         </div>
 

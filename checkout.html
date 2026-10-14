@@ -4,8 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Foodcart Stores – Interactive Mockup</title>
-        <link rel="stylesheet" href="assets/hd_mockup.css?v=2">
-        <script src="assets/mockup-4.js?v=2"></script>    
+        <!--<link rel="stylesheet" href="assets/hd_mockup.css?v=2">-->
+        <link rel="stylesheet" href="assets/fonteawesome-6.5.2-all.min.css" media="all">
+        <!--<script src="assets/mockup-4.js?v=2"></script>-->
+        <script type="module" src="/src/js/foodcart_hd.js"></script>
     </head>
 
     <div id="header-placeholder" class=" sticky-top"></div>
@@ -32,181 +34,448 @@
 
                                 <div class="column-inner">
 
-                                    <!-- Full Name -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">Full Name <span class="required">*</span></span>
-                                        <input type="text" id="billing-name" class="input-field" placeholder="John Doe" value="" required>
+                                    <!--Name -->
+                                    <div class="form-row">
+                                        
+                                        <!-- Firstname -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="billing-firstname">Firstname <span class="required">*</span></label>
+                                            <input 
+                                                type="text" 
+                                                id="billing-firstname" 
+                                                name="billing_firstname"
+                                                class="input-field" 
+                                                placeholder="e.g. Adeola" 
+                                                value="" 
+                                                required
+                                            >
+                                        </div>
+
+                                        <!-- Lastname -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="billing-lastname">Lastname <span class="required">*</span></label>
+                                            <input
+                                                type="text" 
+                                                id="billing-lastname"
+                                                name="billing_lastname"
+                                                class="input-field"
+                                                placeholder="e.g. Mukthar"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
+
                                     </div>
 
-                                    <!-- Phone -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">Phone <span class="required">*</span></span>
-                                        <input type="tel" id="billing-phone" class="input-field" placeholder="08012345678" value="" required>
-                                    </div>
+                                    <!-- Contact Details-->
+                                    <div class="form-row">
+                                        
+                                        <!-- Phone -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="billing-phone">Phone <span class="required">*</span></label>
+                                            <input
+                                                type="tel"
+                                                id="billing-phone"
+                                                name="billing_phone"
+                                                class="input-field"
+                                                placeholder="e.g. 08012345678"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
 
-                                    <!-- Email -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">E-mail <span class="required">*</span></span>
-                                        <input type="email" id="billing-email" class="input-field" placeholder="john@example.com" value="" required>
+                                        <!-- Email -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="billing-email">E-mail <span class="required">*</span></label>
+                                            <input
+                                                type="email"
+                                                id="billing-email"
+                                                name="billing_email"
+                                                class="input-field"
+                                                placeholder="e.g. amukthar@example.com"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
+
                                     </div>
 
                                     <!-- Address -->
                                     <div class="input-wrap">
-                                        <span class="input-label">Address <span class="required">*</span></span>
-                                        <input id="billing-address-1" class="input-field" name="billing-address-1" placeholder="Line 1: House No. and Street Name" value="" required></input>
-                                        <input id="billing-address-2" class="input-field" name="billing-address-2" placeholder="Line 2: Apartment, Block, Suite No. or Closest Landmark (Optional)" value=""></input>
+                                        <label class="input-label" for="billing-address">Address <span class="required">*</span></label>
+                                        <input
+                                            type="text"
+                                            id="billing-address"
+                                            name="billing_address"
+                                            class="input-field"
+                                            placeholder="Line 1: House No. and Street Name"
+                                            value=""
+                                            required
+                                        >
+                                        <input
+                                            type="text"
+                                            id="billing-address-1"
+                                            name="billing_address_1"
+                                            class="input-field"
+                                            placeholder="Line 2: Apartment, Block, Suite No. or Closest Landmark (Optional)"
+                                            value=""
+                                        >
                                     </div>
 
-                                    <!-- Suburb/Town -->
-                                    <div class="input-wrap">
-                                        <label class="input-label">Suburb/Town<span class="required">*</span></label>
-                                        <input type="text" id="billing-suburb" class="input-field" placeholder="e.g. Ilasamaja, Ipodo" value="" required>
-                                    </div>
+                                    <!-- Territory-->
+                                    <div class="form-row">
+                                        
+                                        <!-- Suburb/Town -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="billing-suburb">Suburb/Town<span class="required">*</span></label>
+                                            <input
+                                                type="text"
+                                                id="billing-suburb"
+                                                name="billing_suburb"
+                                                class="input-field"
+                                                placeholder="e.g. Ijeshatedo"
+                                                value=""
+                                                autocomplete="address-level3"
+                                                required
+                                            >
+                                        </div>
 
-                                    <!-- LGA -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">LGA <span class="required">*</span></span>
-                                        <select id="billing-lga" class="input-selector" title="checkout" required>
-                                            <option value="">Select LGA...</option>
-                                            <option value="agege">Agege</option>
-                                            <option value="ajeromi-ifelodun">Ajeromi/Ifelodun</option>
-                                            <option value="alimosho">Alimosho</option>
-                                            <option value="Apapa">Apapa</option>
-                                            <option value="amuwo-odofin">Amuwo Odofin</option>
-                                            <option value="badagry">Badagry</option>
-                                            <option value="eti-osa">Eti-Osa (Lekki/VI)</option>
-                                            <option value="epe">Epe</option>
-                                            <option value="ibeju-lekki">Ibeju-Lekki</option>
-                                            <option value="ifako-ijaye">Ifako-Ijaye</option>
-                                            <option value="ikeja" selected>Ikeja</option>
-                                            <option value="ikorodu">Ikorodu</option>
-                                            <option value="kosofe">Kosofe</option>
-                                            <option value="lagos-island">Lagos Island</option>
-                                            <option value="lagos-mainland">Lagos Mainland</option>
-                                            <option value="mushin">Mushin</option>
-                                            <option value="oshodi-isolo">Oshodi-Isolo</option>
-                                            <option value="ojo">Ojo</option>
-                                            <option value="somolu">Somolu</option>
-                                            <option value="surulere">Surulere</option>
-                                        </select>
+                                        <!-- LGA -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="billing-lga">LGA <span class="required">*</span></label>
+                                            <div class="select-wrap">
+                                                <select
+                                                    id="billing-lga"
+                                                    name="billing_lga"
+                                                    class="input-selector"
+                                                    required
+                                                >
+                                                    <option value="" selected>-- Select Local Government Area --</option>
+                                                    <option value="agege">Agege</option>
+                                                    <option value="ajeromi-ifelodun">Ajeromi/Ifelodun</option>
+                                                    <option value="alimosho">Alimosho</option>
+                                                    <option value="apapa">Apapa</option>
+                                                    <option value="amuwo-odofin">Amuwo Odofin</option>
+                                                    <option value="badagry">Badagry</option>
+                                                    <option value="eti-osa">Eti-Osa (Lekki/VI)</option>
+                                                    <option value="epe">Epe</option>
+                                                    <option value="ibeju-lekki">Ibeju-Lekki</option>
+                                                    <option value="ifako-ijaye">Ifako-Ijaye</option>
+                                                    <option value="ikeja">Ikeja</option>
+                                                    <option value="ikorodu">Ikorodu</option>
+                                                    <option value="kosofe">Kosofe</option>
+                                                    <option value="lagos-island">Lagos Island</option>
+                                                    <option value="lagos-mainland">Lagos Mainland</option>
+                                                    <option value="mushin">Mushin</option>
+                                                    <option value="oshodi-isolo">Oshodi-Isolo</option>
+                                                    <option value="ojo">Ojo</option>
+                                                    <option value="somolu">Somolu</option>
+                                                    <option value="surulere">Surulere</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>
 
                                 <!-- Collect Shipping Data -->
                                 <div class="check-wrap">
-                                    <input id="ship-to-different" class="auth-check" type="checkbox">
+                                    <input
+                                        id="ship-to-different"
+                                        name="ship_to_different"
+                                        class="auth-check"
+                                        type="checkbox"
+                                    >
                                     <label class="auth-label" for="ship-to-different">Ship to a different Address?</label>
                                 </div>
 
                             </div>
 
                             <!-- Shipping Details -->
-                            <div id="shipping" class="shipping-column d-none">
+                            <div id="shipping" class="shipping-column">
                                 
                                 <h3 class="form-title">Shipping Details</h3>
 
                                 <div class="column-inner">
                                     
-                                    <!-- Full Name -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">Full Name <span class="required">*</span></span>
-                                        <input type="text" id="shipping-name" class="input-field" placeholder="John Doe" value="">
+                                    <!-- Name -->
+                                    <div class="form-row">
+
+                                        <!-- Firstname -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="shipping-firstname">Firstname <span class="required">*</span></label>
+                                            <input
+                                                type="text"
+                                                id="shipping-firstname"
+                                                name="shipping_firstname"
+                                                class="input-field"
+                                                placeholder="e.g. Adeola"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
+
+                                        <!-- Lastname -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="shipping-lastname">Lastname <span class="required">*</span></label>
+                                            <input
+                                                type="text"
+                                                name="shipping_lastname"
+                                                id="shipping-lastname"
+                                                class="input-field"
+                                                placeholder="e.g. Mukthar"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
+                                    
                                     </div>
 
-                                    <!-- Phone -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">Phone <span class="required">*</span></span>
-                                        <input type="tel" id="shipping-phone" class="input-field" placeholder="08012345678" value="">
-                                    </div>
+                                    <!-- Contact Details -->
+                                    <div class="form-row">
+                                        
+                                        <!-- Phone -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="shipping-phone">Phone <span class="required">*</span></label>
+                                            <input
+                                                type="tel"
+                                                id="shipping-phone"
+                                                name="shipping_phone"
+                                                class="input-field"
+                                                placeholder="e..g. 08012345678"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
 
-                                    <!-- Email -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">E-mail <span class="required">*</span></span>
-                                        <input type="email" id="shipping-email" class="input-field" placeholder="john@example.com" value="">
+                                        <!-- Email -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="shipping-email">E-mail <span class="required">*</span></label>
+                                            <input
+                                                type="email"
+                                                id="shipping-email"
+                                                name="shipping_email"
+                                                class="input-field"
+                                                placeholder="e.g. amukthar@example.com"
+                                                value=""
+                                                required
+                                            >
+                                        </div>
+                                    
                                     </div>
 
                                     <!-- Address -->
                                     <div class="input-wrap">
-                                        <span class="input-label">Address <span class="required">*</span></span>
-                                        <input id="shipping-address-1" class="input-field" name="shipping-address-1" placeholder="Line 1: House No. and Street Name" value="" required></input>
-                                        <input id="shipping-address-2" class="input-field" name="shipping-address-2" placeholder="Line 2: Apartment, Block, Suite No. or Closest Landmark (Optional)" value=""></input>
+                                        <label class="input-label" for="shipping-address">Address <span class="required">*</span></label>
+                                        <input
+                                            type="text"
+                                            id="shipping-address"
+                                            name="shipping_address"
+                                            class="input-field"
+                                            placeholder="Line 1: House No. and Street Name"
+                                            value=""
+                                            required
+                                        >
+                                        <input
+                                            type="text"
+                                            id="shipping-address-1"
+                                            name="shipping_address_1" 
+                                            class="input-field" 
+                                            placeholder="Line 2: Apartment, Block, Suite No. or Closest Landmark (Optional)" 
+                                            value=""
+                                        >
                                     </div>
 
-                                    <!-- Suburb/Town -->
-                                    <div class="input-wrap">
-                                        <label class="input-label">Suburb/Town<span class="required">*</span></label>
-                                        <input type="text" id="shipping-suburb" class="input-field" placeholder="e.g. Ilasamaja, Ipodo" value="">
-                                    </div>
+                                    <!-- Territory-->
+                                    <div class="form-row">
 
-                                    <!-- LGA -->
-                                    <div class="input-wrap">
-                                        <span class="input-label">LGA <span class="required">*</span></span>
-                                        <select id="shipping-lga" class="input-selector" title="checkout" required>
-                                            <option value="">Select LGA...</option>
-                                            <option value="agege">Agege</option>
-                                            <option value="ajeromi-ifelodun">Ajeromi/Ifelodun</option>
-                                            <option value="alimosho">Alimosho</option>
-                                            <option value="Apapa">Apapa</option>
-                                            <option value="amuwo-odofin">Amuwo Odofin</option>
-                                            <option value="badagry">Badagry</option>
-                                            <option value="eti-osa">Eti-Osa (Lekki/VI)</option>
-                                            <option value="epe">Epe</option>
-                                            <option value="ibeju-lekki">Ibeju-Lekki</option>
-                                            <option value="ifako-ijaye">Ifako-Ijaye</option>
-                                            <option value="ikeja" selected>Ikeja</option>
-                                            <option value="ikorodu">Ikorodu</option>
-                                            <option value="kosofe">Kosofe</option>
-                                            <option value="lagos-island">Lagos Island</option>
-                                            <option value="lagos-mainland">Lagos Mainland</option>
-                                            <option value="mushin">Mushin</option>
-                                            <option value="oshodi-isolo">Oshodi-Isolo</option>
-                                            <option value="ojo">Ojo</option>
-                                            <option value="somolu">Somolu</option>
-                                            <option value="surulere">Surulere</option>
-                                        </select>
+                                        <!-- Suburb/Town -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="shipping-suburb">Suburb/Town<span class="required">*</span></label>
+                                            <input
+                                                type="text"
+                                                id="shipping-suburb"
+                                                name="shipping_suburb"
+                                                class="input-field"
+                                                placeholder="e.g. Ijeshatedo"
+                                                value=""
+                                                autocomplete="address-level3"
+                                                required
+                                            >
+                                        </div>
+
+                                        <!-- LGA -->
+                                        <div class="input-wrap">
+                                            <label class="input-label" for="shipping-lga">LGA <span class="required">*</span></label>
+                                            <div class="select-wrap">
+                                                <select
+                                                    id="shipping-lga"
+                                                    name="shipping_lga"
+                                                    class="input-selector"
+                                                    required
+                                                >
+                                                    <option value="" selected>-- Select Local Government Area --.</option>
+                                                    <option value="agege">Agege</option>
+                                                    <option value="ajeromi-ifelodun">Ajeromi/Ifelodun</option>
+                                                    <option value="alimosho">Alimosho</option>
+                                                    <option value="apapa">Apapa</option>
+                                                    <option value="amuwo-odofin">Amuwo Odofin</option>
+                                                    <option value="badagry">Badagry</option>
+                                                    <option value="eti-osa">Eti-Osa (Lekki/VI)</option>
+                                                    <option value="epe">Epe</option>
+                                                    <option value="ibeju-lekki">Ibeju-Lekki</option>
+                                                    <option value="ifako-ijaye">Ifako-Ijaye</option>
+                                                    <option value="ikeja">Ikeja</option>
+                                                    <option value="ikorodu">Ikorodu</option>
+                                                    <option value="kosofe">Kosofe</option>
+                                                    <option value="lagos-island">Lagos Island</option>
+                                                    <option value="lagos-mainland">Lagos Mainland</option>
+                                                    <option value="mushin">Mushin</option>
+                                                    <option value="oshodi-isolo">Oshodi-Isolo</option>
+                                                    <option value="ojo">Ojo</option>
+                                                    <option value="somolu">Somolu</option>
+                                                    <option value="surulere">Surulere</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     
                                 </div>
 
                             </div>
 
-                            <!-- Delivery Speed -->
+                            <!-- Shipping Speed -->
                             <div class="input-wrap">
-                                <span class="input-label">Delivery Speed <span class="required">*</span></span>
-                                <select id="checkout-speed" class="input-selector" title="checkout" required>
-                                    <option value="express" data-fee="700">🚀 Express (Same-Day) – ₦700</option>
-                                    <option value="standard" data-fee="300">📦 Standard (3-5 days) – ₦300</option>
-                                </select>                                                               
-                            </div>
 
-                            <!-- Payment Method (optional, for demo) -->
+                                <label class="input-label" for="shipping-method">Shipping Method <span class="required">*</span></label>
+                                
+                                <div class="shipping-selector">
+                                    
+                                    <!-- Hidden native select -->
+                                     <!--<div class="select-wrap">-->
+                                        <select
+                                            id="shipping-method"
+                                            name="shipping_method"
+                                            class="input-selector"
+                                            required
+                                        >
+                                            <option value="" selected>-- Select a Shipping Method --</option>
+                                            <option value="express">Express (Same-Day)</option>
+                                            <option value="standard">Standard (3-5 days) </option>
+                                            <option value="pickup">Store Pickup (0-2 days)</option>
+                                        </select>
+                                     <!--</div>-->
+                                                                         
+                                    <!-- Visible custom trigger -->
+                                    <button
+                                        type="button"
+                                        class="shipping-options"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                      >
+                                        <span class="option-icon">
+                                            <span class="fa-solid fa-rocket" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="option-content">
+                                            <span class="option-label">Express</span>
+                                            <span class="option-desc">Same-Day Delivery</span>
+                                        </span>
+                                        <span class="option-fee"><!-- --></span>
+                                        <span class="fa-solid fa-chevron-down option-arrow" aria-hidden="true"></span>
+                                    </button>       
+
+                                </div>
+
+                            </div>                  
+
+                            <!-- Delivery Notes -->                                                                    
                             <div class="input-wrap">
-                                <span class="input-label">Payment Method<span class="required">*</span></span>
-                                <select id="checkout-payment" class="input-selector" title="checkout" required>
-                                    <option value="card">💳 Card</option>
-                                    <option value="bank">🏦 Bank Transfer</option>
-                                    <option value="ussd">📱USSD Transfer</option>
-                                    <option value="cod">💵 Cash on Delivery</option>
-                                </select>
+                                <label class="input-label" for="delivery-notes">Order Notes (Optional)</label>
+                                <textarea 
+                                    id="delivery-notes"
+                                    class="input-textarea"
+                                    name="delivery_notes"
+                                    placeholder="Notes about your order e.g. Call before dispatching"
+                                    value=""
+                                ></textarea>
                             </div>
                             
                         </div>
 
                         <div id="order-summary" class="order-summary">
 
-                            <h3 class="summary-title">Order Summary</h3>
+                            <h3 id="summaryHead" class="summary-title">Order Summary</h3>
 
                             <div class="order-summary-inner">
-                              
+                                            
+                                <div class="order-items-list">
+
+                                    <!-- Dynamically populated via JavaScript -->
+                                                
+                                </div>
+
                             </div>
-                            
+
+                            <!-- Payment Method (optional, for demo) -->
+                            <div id="order-payment" class="input-wrap">
+
+                                <span class="input-label">
+                                    Payment Method
+                                    <span class="required">*</span>
+                                </span>
+
+                                <div class="payment-selector">
+
+                                    <!-- Hidden native select -->
+                                     <!--<div class="select-wrap">-->
+                                        <select
+                                            id="payment-method"
+                                            class="input-selector"
+                                            name="payment-method"
+                                            required
+                                        >
+                                            <option value="card" selected>Card</option>
+                                            <option value="bank">Bank Transfer</option>
+                                            <option value="ussd">USSD Transfer</option>
+                                            <option value="cod">Cash</option>
+                                        </select>
+                                     <!--</div>-->
+
+                                    <!-- Visible custom trigger -->
+                                    <button
+                                        type="button"
+                                        class="payment-options"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                      >
+                                        <span class="option-icon">
+                                            <span class="fa-solid fa-credit-card" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="option-content">
+                                            <strong class="option-label">Card</strong>
+                                            <span class="option-desc">Visa, Mastercard, Verve</span>
+                                        </span>
+                                        <span class="fa-solid fa-chevron-down option-arrow" aria-hidden="true"></span>
+                                    </button>
+
+                                </div>
+
+                            </div>          
+
                             <!-- Place Order Button -->
                             <div class="push-order">
 
-                                <button id="order-btn" type="submit" class="btn btn-green checkout-order">Place Order ✔</button>
+                                <button id="order-btn" type="submit" class="btn btn-green checkout-order">
+                                    Place Order
+                                    <span class="fa-solid fa-check" aria-hidden="true"></span>
+                                </button>
 
-                                <p class="footnote">🔒 Secure transaction via Paystack</p>
+                                <p id="footnote" class="footnote">
+                                    <span class="fa-solid fa-lock" aria-hidden="true"></span>
+                                    SSL Secured Payment Gateway
+                                </p>
 
                             </div>
 

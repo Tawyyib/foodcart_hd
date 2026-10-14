@@ -1,0 +1,553 @@
+// ============================================
+// CART PAGE
+// ============================================
+.cart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+// ---- Empty Cart ----
+.empty-cart {
+  padding: var(--spacing-2xl);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.empty-cart-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.empty-cart-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.empty-cart-title {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-heading);
+}
+
+.empty-cart-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+// ---- Cart Items List ----
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.cart-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+
+  padding: var(--spacing-md);
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  transition: border-color var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-border-strong);
+  }
+}
+
+.card-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+
+  background: var(--color-background);
+  border-radius: var(--radius-sm);
+
+  font-size: 1.5rem;
+}
+
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+  min-width: 0;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+
+.item-title {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  color: var(--color-heading);
+}
+
+.btn-remove {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+
+  transition: 
+    color var(--transition-fast),
+    transform var(--transition-fast);
+
+  &:hover {
+    transform: scale(1.15);
+    color: var(--color-danger);
+    background: var(--color-danger-bg);
+ }
+
+}
+
+.item-variant {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin: 2px 0 4px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+// ---- Quantity Stepper ----
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.step-btn {
+  padding: 5px 12px;
+
+  background: var(--color-background);
+  border: none;
+
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+
+  &:hover {
+    background: var(--color-border);
+  }
+}
+
+.qty-field {
+  width: 36px;
+  padding: 6px 0;
+
+  border: none;
+  background: transparent;
+  text-align: center;
+
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  outline: none;
+}
+
+.item-price-block {
+  text-align: right;
+}
+
+.unit-price {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.subtotal-price {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-heading);
+}
+
+// ---- Free Shipping Progress ----
+.shipping-progress-banner {
+  padding: var(--spacing-md);
+
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-md);
+
+  font-size: var(--font-size-xs);
+  color: var(--color-success-text);
+}
+
+.progress-track {
+  height: 6px;
+  margin-top: 8px;
+
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+
+  background: var(--color-green);
+  border-radius: var(--radius-full);
+
+  transition: width var(--transition-slow);
+}
+
+// ============================================
+// CART TOTALS
+// ============================================
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  padding: var(--spacing-lg);
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  position: sticky;
+  top: 90px;
+  height: max-content;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.cart-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.line-label {
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.line-value {
+  display: flex;
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.cart-subtotal {
+  // Specific styling if needed
+}
+
+// ============================================
+// SHIPPING GROUP
+// ============================================
+.cart-shipping-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+// ---- Shipping fee row ----
+.cart-shipping-fee {
+
+  .line-value {
+    color: var(--color-green);
+
+    &.is-pending {
+      color: var(--color-text-muted);
+      font-weight: var(--font-weight-normal);
+    }
+
+  }
+
+}
+
+#delivery-fee-display {
+  
+  .fee-was {
+    font-size: 0.85em;
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    margin-right: 6px;
+  }
+
+  .fee-now {
+    color: var(--color-green);
+    font-weight: var(--font-weight-semibold);
+  }
+
+}
+
+// ---- Fee display classes ----
+.option-fee,
+.order-shipping-rate {
+  
+  &.is-pending {
+    color: var(--color-text-muted);
+  }
+
+  &.is-standard {
+    color: var(--color-text-muted);
+  }
+
+  &.is-pickup {
+    color: var(--color-text-muted);
+  }
+
+  &.is-free {
+    color: var(--color-green);
+
+    .fee-was {
+      text-decoration: line-through;
+      color: var(--color-text-muted);
+      margin-right: 6px;
+      font-size: 0.85em;
+    }
+
+    .fee-now {
+      color: var(--color-green);
+      font-weight: var(--font-weight-semibold);
+    }
+
+  }
+
+  &.is-discounted {
+    color: var(--color-green);
+
+    .fee-was {
+      text-decoration: line-through;
+      color: var(--color-text-muted);
+      margin-right: 6px;
+      font-size: 0.85em;
+    }
+
+    .fee-now {
+      color: var(--color-green);
+      font-weight: var(--font-weight-semibold);
+    }
+
+  }
+
+}
+
+// ---- Destination row ----
+.cart-shipping-dest {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+
+    .line-value {
+      gap: var(--spacing-sm);
+    }
+
+}
+
+.set-destination {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+
+  &.is-hidden {
+    display: none;
+  }
+
+}
+
+.pick-destination {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: none;
+
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-green-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  &[aria-expanded="true"] {
+    color: var(--color-text-muted);
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+  
+}
+
+// ---- Shipping calculation form ----
+.shipping-calc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.ship-to {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  //border-top: 1px dashed var(--color-border);
+
+  padding: var(--spacing-md);
+
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  // Subtle visual emphasis — this block is interactive
+  transition: border-color var(--transition-fast);
+
+  &:focus-within {
+    border-color: var(--color-green);
+  }
+  animation: fadeSlideIn 0.2s ease;
+
+  &[hidden] {
+    display: none;
+  }
+
+  [data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+}
+
+.clear-shipping {
+  align-self: stretch;
+  width: 100%;
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-md);
+
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.is-hidden {
+    display: none;
+  }
+
+}
+
+// ---- Form caption ----
+.shipping-save-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin: var(--spacing-sm) 0 0;
+  padding: 0;
+
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+
+  span {
+    color: var(--color-green);
+    font-size: 0.85em;
+  }
+
+}
+
+// ---- Total row ----
+.cart-total .total {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: var(--spacing-sm);
+  border-top: 2px solid var(--color-border);
+
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-heading);
+}
+
+@keyframes fadeSlideIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}

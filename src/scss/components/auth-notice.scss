@@ -1,0 +1,142 @@
+// ============================================
+// AUTH NOTICE (Sidebar)
+// ============================================
+// Displays benefits of registering. Shown inside
+// the auth overlay alongside the login/register form.
+// On mobile, hidden by default; shown at ≥768px.
+// ============================================
+
+.auth-notice {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  flex: 1;
+  min-width: 0;
+  height: max-content;
+
+  padding-left: var(--spacing-lg);
+  border-left: 1px solid var(--color-border);
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-basis: 40%;
+  }
+  
+}
+
+// ============================================
+// NOTICE TITLE
+// ============================================
+.notice-title {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-heading);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+// ============================================
+// NOTICE ITEMS LIST
+// ============================================
+.notice-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.notice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+// ---- Icon badge ----
+.notice-item .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  background: var(--color-green-tint);
+  border-radius: var(--radius-full);
+
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--color-green);
+
+  transition:
+    transform var(--transition-base),
+    background-color var(--transition-base);
+
+  [data-theme="dark"] & {
+    background: rgba(237, 231, 44, 0.08);
+    color: var(--color-yellow);
+  }
+}
+
+.notice-item:hover .icon {
+  transform: scale(1.08);
+  background: var(--color-yellow-tint);
+  color: var(--color-yellow);
+
+  [data-theme="dark"] & {
+    background: rgba(162, 211, 94, 0.15);
+    color: var(--color-primary-light);
+  }
+}
+
+// ---- Text block ----
+.notice-item .desc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+
+  h4 {
+    font-family: var(--font-family-brand);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    color: var(--color-heading);
+    margin: 0;
+  }
+
+  p {
+    font-family: var(--font-family-ui);
+    font-size: var(--font-size-xs);
+    line-height: 1.55;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+@media (max-width: 480px) {
+  .auth-notice {
+    padding-left: 0;
+    border-left: none;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .notice-item .icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .notice-item .desc h4 {
+    font-size: 0.85rem;
+  }
+
+  .notice-item .desc p {
+    font-size: 0.7rem;
+  }
+}

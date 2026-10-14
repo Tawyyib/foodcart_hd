@@ -1,0 +1,443 @@
+// ============================================
+// UTILITIES — Single-Purpose Helper Classes
+// ============================================
+// These are small, reusable, non-semantic classes.
+// Used to quickly adjust layout, visibility, spacing,
+// or typography without writing new SCSS.
+//
+// Order of sections:
+//   1. Display
+//   2. Visibility
+//   3. Positioning
+//   4. Flexbox
+//   5. Grid
+//   6. Spacing (margin/padding)
+//   7. Text
+//   8. Overflow
+//   9. Sizing
+//  10. Border & Radius
+//  11. Cursor
+//  12. Accessibility
+//  13. Animations
+//  14. State helpers
+// ============================================
+
+
+// ============================================
+// 1. DISPLAY
+// ============================================
+.d-none         { display: none !important; }
+.d-block        { display: block !important; }
+.d-inline       { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex         { display: flex !important; }
+.d-inline-flex  { display: inline-flex !important; }
+.d-grid         { display: grid !important; }
+
+
+// ============================================
+// 2. VISIBILITY
+// ============================================
+.show  { display: flex !important; }
+.hide  { display: none !important; }
+
+// ============================================
+// STATE CLASSES
+// ============================================
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+.visible        { visibility: visible !important; }
+.invisible      { visibility: hidden !important; }
+
+.opacity-0      { opacity: 0 !important; }
+.opacity-50     { opacity: 0.5 !important; }
+.opacity-100    { opacity: 1 !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+// ============================================
+// 3. POSITIONING
+// ============================================
+.relative  { position: relative !important; }
+.absolute  { position: absolute !important; }
+.fixed     { position: fixed !important; }
+.sticky    { position: sticky !important; }
+.static    { position: static !important; }
+
+.top-0     { top: 0 !important; }
+.right-0   { right: 0 !important; }
+.bottom-0  { bottom: 0 !important; }
+.left-0    { left: 0 !important; }
+
+.inset-0   { inset: 0 !important; }
+
+.z-0       { z-index: 0 !important; }
+.z-10      { z-index: 10 !important; }
+.z-100     { z-index: 100 !important; }
+.z-1000    { z-index: 1000 !important; }
+
+
+// ============================================
+// 4. FLEXBOX
+// ============================================
+.flex-row      { flex-direction: row !important; }
+.flex-column   { flex-direction: column !important; }
+.flex-wrap     { flex-wrap: wrap !important; }
+.flex-nowrap   { flex-wrap: nowrap !important; }
+
+.justify-start   { justify-content: flex-start !important; }
+.justify-center  { justify-content: center !important; }
+.justify-end     { justify-content: flex-end !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around  { justify-content: space-around !important; }
+
+.align-start     { align-items: flex-start !important; }
+.align-center    { align-items: center !important; }
+.align-end       { align-items: flex-end !important; }
+.align-stretch   { align-items: stretch !important; }
+.align-baseline  { align-items: baseline !important; }
+
+.align-self-start     { align-self: flex-start !important; }
+.align-self-center    { align-self: center !important; }
+.align-self-end       { align-self: flex-end !important; }
+.align-self-stretch   { align-self: stretch !important; }
+.align-self-baseline  { align-self: baseline !important; }
+
+.flex-1  { flex: 1 !important; }
+.flex-none { flex: none !important; }
+
+.gap-xs  { gap: var(--spacing-xs) !important; }
+.gap-sm  { gap: var(--spacing-sm) !important; }
+.gap-md  { gap: var(--spacing-md) !important; }
+.gap-lg  { gap: var(--spacing-lg) !important; }
+.gap-xl  { gap: var(--spacing-xl) !important; }
+
+
+// ============================================
+// 5. GRID
+// ============================================
+.grid-cols-1 { grid-template-columns: 1fr !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+
+
+// ============================================
+// 6. SPACING
+// ============================================
+
+// ---- Margin ----
+.m-0    { margin: 0 !important; }
+.m-auto { margin: auto !important; }
+
+.mt-0   { margin-top: 0 !important; }
+.mt-xs  { margin-top: var(--spacing-xs) !important; }
+.mt-sm  { margin-top: var(--spacing-sm) !important; }
+.mt-md  { margin-top: var(--spacing-md) !important; }
+.mt-lg  { margin-top: var(--spacing-lg) !important; }
+.mt-xl  { margin-top: var(--spacing-xl) !important; }
+.mt-20  { margin-top: 20px !important; }
+.mt-auto { margin-top: auto !important; }
+
+.mb-0   { margin-bottom: 0 !important; }
+.mb-xs  { margin-bottom: var(--spacing-xs) !important; }
+.mb-sm  { margin-bottom: var(--spacing-sm) !important; }
+.mb-md  { margin-bottom: var(--spacing-md) !important; }
+.mb-lg  { margin-bottom: var(--spacing-lg) !important; }
+.mb-xl  { margin-bottom: var(--spacing-xl) !important; }
+.mb-20  { margin-bottom: 20px !important; }
+.mb-auto { margin-bottom: auto !important; }
+
+.ml-auto { margin-left: auto !important; }
+.mr-auto { margin-right: auto !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+// ---- Padding ----
+.p-0   { padding: 0 !important; }
+.p-sm  { padding: var(--spacing-sm) !important; }
+.p-md  { padding: var(--spacing-md) !important; }
+.p-lg  { padding: var(--spacing-lg) !important; }
+.p-xl  { padding: var(--spacing-xl) !important; }
+
+.pt-0  { padding-top: 0 !important; }
+.pb-0  { padding-bottom: 0 !important; }
+.px-0  { padding-left: 0 !important; padding-right: 0 !important; }
+.py-0  { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+
+// ============================================
+// 7. TEXT
+// ============================================
+.text-left    { text-align: left !important; }
+.text-center  { text-align: center !important; }
+.text-right   { text-align: right !important; }
+
+.text-xs      { font-size: var(--font-size-xs) !important; }
+.text-sm      { font-size: var(--font-size-sm) !important; }
+.text-base    { font-size: var(--font-size-base) !important; }
+.text-lg      { font-size: var(--font-size-lg) !important; }
+.text-xl      { font-size: var(--font-size-xl) !important; }
+
+.uppertext    { text-transform: uppercase !important; }
+.lowercase    { text-transform: lowercase !important; }
+.capitalize   { text-transform: capitalize !important; }
+
+.font-normal    { font-weight: var(--font-weight-normal) !important; }
+.font-medium    { font-weight: var(--font-weight-medium) !important; }
+.font-semibold  { font-weight: var(--font-weight-semibold) !important; }
+.font-bold      { font-weight: var(--font-weight-bold) !important; }
+
+.italic       { font-style: italic !important; }
+.underline    { text-decoration: underline !important; }
+.line-through { text-decoration: line-through !important; }
+
+// ---- Text Colors ----
+.text-primary    { color: var(--color-primary) !important; }
+.text-green      { color: var(--color-green) !important; }
+.text-yellow     { color: var(--color-yellow) !important; }
+.text-orange     { color: var(--color-orange) !important; }
+.text-white      { color: var(--color-white) !important; }
+.text-muted      { color: var(--color-text-muted) !important; }
+.text-heading    { color: var(--color-heading) !important; }
+.text-body       { color: var(--color-text) !important; }
+.text-success    { color: var(--color-success) !important; }
+.text-warning    { color: var(--color-warning) !important; }
+.text-danger     { color: var(--color-danger) !important; }
+
+// ---- Truncate Text ----
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+// ============================================
+// 8. OVERFLOW
+// ============================================
+.overflow-hidden  { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-auto    { overflow: auto !important; }
+.overflow-scroll  { overflow: scroll !important; }
+
+.overflow-x-auto  { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+.overflow-y-auto  { overflow-y: auto !important; }
+.no-scroll { overflow: hidden; }
+
+// ============================================
+// 9. SIZING
+// ============================================
+.w-100    { width: 100% !important; }
+.w-auto   { width: auto !important; }
+.w-max    { width: max-content !important; }
+.w-fit    { width: fit-content !important; }
+
+.h-100    { height: 100% !important; }
+.h-auto   { height: auto !important; }
+.h-screen { height: 100vh !important; }
+
+.min-h-screen { min-height: 100vh !important; }
+
+.max-w-full { max-width: 100% !important; }
+.max-w-md   { max-width: 32rem !important; }
+.max-w-lg   { max-width: 48rem !important; }
+.max-w-xl   { max-width: 64rem !important; }
+
+
+// ============================================
+// 10. BORDER & RADIUS
+// ============================================
+.rounded-sm    { border-radius: var(--radius-sm) !important; }
+.rounded-md    { border-radius: var(--radius-md) !important; }
+.rounded-lg    { border-radius: var(--radius-lg) !important; }
+.rounded-xl    { border-radius: var(--radius-xl) !important; }
+.rounded-full  { border-radius: var(--radius-full) !important; }
+.rounded-none  { border-radius: 0 !important; }
+
+.border        { border: 1px solid var(--color-border) !important; }
+.border-0      { border: none !important; }
+.border-top    { border-top: 1px solid var(--color-border) !important; }
+.border-bottom { border-bottom: 1px solid var(--color-border) !important; }
+.border-left   { border-left: 1px solid var(--color-border) !important; }
+.border-right  { border-right: 1px solid var(--color-border) !important; }
+
+
+// ============================================
+// 11. CURSOR
+// ============================================
+.cursor-pointer  { cursor: pointer !important; }
+.cursor-default  { cursor: default !important; }
+.cursor-not-allowed { cursor: not-allowed !important; }
+
+
+// ============================================
+// 12. ACCESSIBILITY
+// ============================================
+.pointer-events-none { pointer-events: none !important; }
+.pointer-events-auto { pointer-events: auto !important; }
+
+.user-select-none { user-select: none !important; }
+.user-select-all  { user-select: all !important; }
+
+
+// ============================================
+// 13. ANIMATIONS
+// ============================================
+.transition-fast { transition: all var(--transition-fast) !important; }
+.transition-base { transition: all var(--transition-base) !important; }
+.transition-slow { transition: all var(--transition-slow) !important; }
+.transition-none { transition: none !important; }
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+// ============================================
+// 14. STATE HELPERS
+// ============================================
+.is-disabled {
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+.is-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--color-border);
+    border-top-color: var(--color-green);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// ---- Mockup Helper ----
+.mockup-label {
+  display: inline-block;
+  padding: 4px 16px;
+  margin-bottom: 10px;
+  background: var(--color-yellow);
+  color: var(--color-primary);
+  font-family: var(--font-family-brand);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-xl);
+}
+
+// ---- Upgrade Note ----
+.upgrade-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+
+  a {
+    color: var(--color-secondary-yellow);
+    text-decoration: underline;
+  }
+}
+
+// ---- Required Field Marker ----
+.required { color: var(--color-danger); }
+
+
+// ============================================
+// 15. RESPONSIVE VISIBILITY
+// ============================================
+// Mobile: hidden on ≥768px
+@media (min-width: 768px) {
+  .d-md-none     { display: none !important; }
+  .d-md-block    { display: block !important; }
+  .d-md-flex     { display: flex !important; }
+}
+
+// Desktop: hidden on <768px
+@media (max-width: 767px) {
+  .d-mobile-only { display: block !important; }
+}
+@media (min-width: 768px) {
+  .d-mobile-only { display: none !important; }
+}
+
+// ---- Hero Visibility (legacy support) ----
+.hero-view    { display: none; }
+.hero-view.show { display: flex; }
+
+.hero-col.mobile-show { display: flex !important; }
+.hero-col.mobile-hide { display: none !important; }
+
+@media (min-width: 768px) {
+  .hero-col.mobile-show,
+  .hero-col.mobile-hide {
+    display: flex !important;
+  }
+}

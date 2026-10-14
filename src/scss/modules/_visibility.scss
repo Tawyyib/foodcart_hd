@@ -1,0 +1,65 @@
+// ============================================
+// VISIBILITY UTILITIES & PAGE SECTIONS
+// ============================================
+
+// ---- Hero views ----
+.hero-view {
+  display: none;
+}
+
+.hero-view.show,
+.hero-view.active {
+  display: flex;
+}
+
+// ---- Hero column mobile toggles ----
+.hero-col.mobile-show {
+  display: flex !important;
+}
+
+.hero-col.mobile-hide {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .hero-col.mobile-show,
+  .hero-col.mobile-hide {
+    display: flex !important;
+  }
+}
+
+// ---- Page sections (radio-based mock navigation) ----
+.page-section {
+  display: block;
+}
+
+input[type="radio"][name="page"] {
+  display: none;
+}
+
+// ---- Legacy radio-based page navigation (if still present) ----
+#page-shop:checked ~ .page-shop,
+#page-pdp:checked ~ .page-pdp,
+#page-cart:checked ~ .page-cart,
+#page-checkout:checked ~ .page-checkout {
+  display: block;
+}
+
+// ---- Utility classes ----
+.hidden     { display: none !important; }
+.visible    { visibility: visible !important; }
+.invisible  { visibility: hidden !important; }
+
+// ---- Responsive visibility helpers ----
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only  { display: none !important; }
+  .desktop-only { display: block !important; }
+}

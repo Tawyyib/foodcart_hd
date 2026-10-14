@@ -1,0 +1,274 @@
+// ============================================
+// BADGES
+// ============================================
+// Small pill labels for status, category, or mode.
+// Uses CSS custom properties for theme awareness.
+// ============================================
+
+// ---- Base Badge ----
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 4px 0;
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  user-select: none;
+}
+
+// ============================================
+// MODE BADGES (Retail / Wholesale)
+// ============================================
+.badge-retail {
+  background: var(--color-mode-accent);
+  color: var(--color-mode-accent-text);
+}
+
+.badge-wholesale {
+  background: var(--color-yellow);
+  color: var(--color-primary);
+}
+
+// ============================================
+// STOCK BADGES
+// ============================================
+.badge-in-stock,
+.badge-success {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.badge-low-stock,
+.badge-warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.badge-out-of-stock,
+.badge-danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+// ============================================
+// PROMO BADGES
+// ============================================
+.badge-sale {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.badge-new {
+  background: var(--color-yellow);
+  color: var(--color-primary);
+}
+
+.badge-featured {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+// ============================================
+// NEUTRAL BADGES
+// ============================================
+.badge-neutral {
+  background: var(--color-background);
+  color: var(--color-text-light);
+}
+
+.badge-outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+// ============================================
+// ABSOLUTE STOCK BADGE (on product images)
+// ============================================
+stock-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-family-brand);
+  font-size: 0.6rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1;
+
+  z-index: 1;
+
+  &.in-stock {
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+  }
+
+  &.low-stock {
+    background: var(--color-warning-bg);
+    color: var(--color-warning-text);
+  }
+
+  &.out-of-stock {
+    background: var(--color-danger-bg);
+    color: var(--color-danger-text);
+  }
+
+}
+
+// ============================================
+// VARIANT LABELS (Jumbo, 50kg, Premium, Standard)
+// ============================================
+.variant-label {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-family-brand);
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.label-jumbo {
+  background: #e9dcff;
+  color: #4a1d96;
+}
+
+.label-50kg {
+  background: #bbcefc;
+  color: #1e3a8a;
+}
+
+.label-premium {
+  background: #cecfd1;
+  color: #1f2937;
+}
+
+.label-standard {
+  background: #bbcefc;
+  color: #1e3a8a;
+}
+
+// ============================================
+// CART BADGE (Count on cart icon)
+// ============================================
+.cart-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+
+  background: var(--color-yellow);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-family-ui);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+
+  // Optional positioning for absolute placement
+  &.absolute {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+  }
+}
+
+// ============================================
+// STATUS PILL (Header — Retail/Wholesale indicator)
+// ============================================
+.pricing-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 5px 12px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-family-brand);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-light);
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--color-yellow);
+    border-radius: 50%;
+  }
+
+  &.wholesale-active,
+  body.mode-wholesale & {
+    background: var(--color-green-tint);
+    border-color: var(--color-green);
+    color: var(--color-green);
+
+    .status-dot {
+      background: var(--color-green);
+      box-shadow: 0 0 6px var(--color-green);
+    }
+  }
+}
+
+// ============================================
+// MODE TOGGLE BADGE (Hero toggle)
+// ============================================
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-family-brand);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+
+  &.retail {
+    background: var(--color-green);
+    color: var(--color-white);
+  }
+
+  &.wholesale {
+    background: var(--color-yellow);
+    color: var(--color-primary);
+  }
+}
+
+// ============================================
+// BADGE SIZES
+// ============================================
+.badge-sm {
+  padding: 2px 8px;
+  font-size: 0.55rem;
+}
+
+.badge-lg {
+  padding: 6px 16px;
+  font-size: 0.75rem;
+}

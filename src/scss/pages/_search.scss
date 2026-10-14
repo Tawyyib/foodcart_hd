@@ -1,0 +1,108 @@
+// src/scss/components/_search.scss
+
+.search-status {
+  margin: 0 0 0cqh;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.search-empty {
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.search-empty-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.search-empty-text {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+// Search card is a variant of .product-card — only overrides live here.
+.search-card {
+  // e.g. no chip row, tighter padding if you want
+}
+
+.search-cta {
+  // e.g. single button; right-aligned or full-width
+}
+
+.badge-category {
+  // small pill above the title
+}
+
+.search-status {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.search-pages {
+  margin-top: 2.5rem;
+}
+
+.search-pages__heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.search-pages__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-page-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--color-surface-2, rgba(0, 0, 0, 0.03));
+  }
+}
+
+.search-page-result__title {
+  font-weight: 500;
+}
+
+.search-page-result__category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.search-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.search-empty-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.search-empty-text {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.search-empty-text strong {
+  color: var(--color-text);
+  font-weight: 600;
+}

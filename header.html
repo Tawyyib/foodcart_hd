@@ -1,4 +1,4 @@
-    <body>
+    <body class="is-guest">
 
         <!-- ============================================ -->
         <!-- HEADER -->
@@ -6,17 +6,47 @@
         <header class="site-header">
 
             <!-- Top Utility Announcement Banner -->
-            <div class="top-bar" id="siteNoticeBar">
-                <div class="top-bar-inner container">
+            <div id="siteNoticeBar" class="notice-bar" role="region" aria-label="Site notice" data-dismiss-timeout="900000">
+
+                <div class="notice-bar-inner relative container">
+
                     <div class="notice-content">
-                        <span>🚚 <strong>Fast Lagos Delivery:</strong> Free shipping on orders over ₦150,000</span>
+                        <span><span class="fas fa-truck-fast"></span> <strong>Fast Lagos Delivery:</strong> Free shipping on orders over ₦150,000</span>
                         <span class="notice-divider">|</span>
-                        <span>📦 Are you a distributor or retailer? <a href="#" data-auth="login" class="notice-link">Sign in</a> to access B2B pricing!</span>
+                        <span><span class="fas fa-boxes-stacked"></span> Are you a distributor or retailer? <a href="#" data-auth="login" class="notice-link">Sign in</a> to access B2B pricing!</span>
                     </div>
-                    <button type="button" class="notice-close-btn" id="closeNoticeBtn" aria-label="Dismiss notice">
+    
+                    <!-- Guest Message -->
+                    <div data-notice="guest" class="notice-content">
+                    <span><span class="fas fa-truck"></span> Free delivery on orders above <strong>₦50,000</strong></span>
+                    <span class="notice-divider">•</span>
+                    <a href="wholesale-registration.html" class="notice-link">
+                        Register for wholesale →
+                    </a>
+                    </div>
+
+                    <!-- Retail Message -->
+                    <div data-notice="retail" class="notice-content">
+                    <span><span class="fas fa-burst"></span> Welcome back! Your retail savings this month: <strong>₦2,400</strong></span>
+                    <span class="notice-divider">•</span>
+                    <a href="account.html" class="notice-link">View account →</a>
+                    </div>
+
+                    <!-- Wholesale Message -->
+                    <div data-notice="wholesale" class="notice-content">
+                    <span><span class="fas fa-boxes-packing"></span> <strong>Wholesale Active</strong> — 10 more cartons to unlock 15% off</span>
+                    <span class="notice-divider">•</span>
+                    <a href="shop-wholesale.html" class="notice-link">Shop wholesale →</a>
+                    </div>
+
+                    <!-- Close Button -->
+                     
+                    <button id="closeNoticeBtn" class="notice-close-btn" aria-label="Dismiss notice" type="button" data-notice="close">
                         &times;
                     </button>
+
                 </div>
+
             </div>
 
             <div class="main-header">
@@ -38,7 +68,7 @@
                         </a>
                     
                         <!-- 4. Dynamic Wholesale Status Badge -->
-                        <div id="pricing-status-pill" class="pricing-status-pill retail mobile-pill">
+                        <div id="pricing-status-pill" class="pricing-status-pill retail mobile-pill d-none">
                             <span class="status-dot"></span>
                             <span id="pillPricingText" class="status-text">Retail</span>
                         </div>
@@ -50,21 +80,21 @@
 
                         <nav id="primary-nav" class="nav-links">
                             <div class="nav-link"><a href="catalogue.html">Catalogue</a></div>
-                            <div class="nav-link"><a href="contact.html">Contact</a></ div>
+                            <div class="nav-link"><a href="contact.html">Contact</a></div>
                         </nav>
 
                     </div>                    
 
                     <!-- 4. Dynamic Wholesale Status Badge -->
-                    <div id="pricing-status-pill" class="pricing-status-pill retail desktop-pill">
+                    <div id="pricing-status-pill" class="pricing-status-pill retail desktop-pill d-none">
                         <span class="status-dot"></span>
                         <span id="pillPricingText" class="status-text">Guest</span>
                     </div>      
 
                     <!-- 5. Central Search Bar -->
                     <div id="searchBar" class="search-bar">
-                        <form id="searchForm" action="shop.html" method="GET" class="search-form">
-                            <input id="searchInput" type="text" name="q" placeholder="Search food staples, rice, beans, garri..." autocomplete="off" required>
+                        <form id="searchForm" action="search.html" method="GET" class="search-form">
+                            <input id="searchInput" type="text" name="q" placeholder="Search food staples, rice, beans, garri..." autocomplete="off">
                             <button class="search-btn" type="submit" aria-label="Search">
                                 <span title="Search" class="search-icon fa-solid fa-search" role="img"></spam>
                             </button>
@@ -73,32 +103,46 @@
 
                     <!-- 6. Header Action Utilities -->
                     <div class="header-buttons">
-                            
-                        <button id="searchToggleBtn" class="search-btn d-none" type="button" aria-label="Search">
-                            <span title="Search" class="search-icon fa-solid fa-search" role="img"></spam>
-                        </button>
                         
                         <!-- 1. Mobile Hamburger Toggle Button -->
                         <a href="catalogue.html" class="catalog-toggle" title="Catalogue">
                             <span class="catalog-icon fa-solid fa-list-ul"></span>
-                            <span class="icon-text">Catalog</span>
+                            <span class="catalog-label">Catalog</span>
                         </button>
                         
                         <!-- Cart Icon & Badge -->
-                        <a href="cart.html" class="mini-cart" title="Mini Cart">
-                            <div class="cart-btn">
-                                <span class="cart-badge bg-amber">0</span>
-                                <span class="trolley-icon fa-solid fa-cart-shopping" role="img" aria-label="Mini Cart"></span>
-                            </div>
-                            <span class="icon-text">Cart</span>
+                        <a 
+                            id="miniCartTrigger"
+                            data-cart-toggle
+                            class="cart-toggle"
+                            role="button"
+                            tabindex="0"
+                            title="Mini Cart Trigger"
+                            aria-label="Open cart"
+                            aria-haspopup="dialog"
+                            aria-controls="miniCart"
+                            aria-expanded="false"
+                        >
+                            <button 
+                                type="button"
+                                class="cart-btn"
+                                aria-haspopup="dialog"
+                                aria-expanded="false"
+                                aria-controls="miniCart"
+                                aria-label="Open cart"
+                            >
+                                <span class="cart-count bg-amber">0</span>
+                                <span class="cart-icon fa-solid fa-cart-shopping" role="img" aria-label="Mini Cart"></span>
+                            </button>
+                            <span class="cart-label">Cart</span>
                         </a>
 
                         <!-- LOGGED-OUT STATE: Login / Register Dropdown -->
-                        <div id="profile-logged-out" class="user-profile profile-login-span" title="Login/Register">
+                        <div id="profile-logged-out" class="user-access profile-login-span" title="Login/Register">
 
-                            <button type="button" class="profile-toggle" aria-haspopup="true">
-                                <span class="user-icon fa-solid fa-user" role="img" aria-label="User-Logout-Icon"></span> 
-                                <span class="icon-text">Account</span>
+                            <button type="button" class="profile-toggle" aria-haspopup="true" aria-expanded="false">
+                                <span class="profile-icon fa-solid fa-user" role="img" aria-label="User-Logout-Icon"></span> 
+                                <span class="profile-label">Account</span>
                             </button>
 
                             <div class="profile-tabs">
@@ -109,12 +153,12 @@
                         </div>
 
                         <!-- LOGGED-IN STATE: Account & Logout Display -->
-                        <div id="profile-logged-in" class="user-profile profile-logout-span hide" title="Logout/Track Order">
+                        <div id="profile-logged-in" class="user-access profile-logout-span hide" title="Logout/Track Order">
 
-                            <div id="userBadgeWrapper" class="profile-toggle" aria-haspopup="true">
-                                <span class="user-icon fa-solid fa-user" role="img" aria-label="User-Logout-Icon"></span>                                    
-                                <div class="icon-text user-greeting"> <span class="greeting-prefix">Hi,</span> <span class="user-name header-user-display"></span>                                                                    </div>
-                            </div>
+                            <button id="userBadgeWrapper" class="profile-toggle" aria-haspopup="true" aria-expanded="false">
+                                <span class="profile-icon fa-solid fa-user" role="img" aria-label="User-Logout-Icon"></span>                                    
+                                <div class="profile-label user-greeting"> <span class="greeting-prefix">Hi,</span> <span class="user-name header-user-display"></span>                                                                    </div>
+                            </button>
 
                             <div class="profile-tabs">
                                 <a id="track-order" href="track-order.html" class="track-order" title="Track Order">Track Order</a>

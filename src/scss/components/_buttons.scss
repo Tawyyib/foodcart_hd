@@ -1,0 +1,287 @@
+// ============================================
+// BUTTONS
+// ============================================
+// All buttons use CSS custom properties so they
+// auto-adapt to light mode, dark mode, and wholesale mode.
+// ============================================
+
+// ---- Base Button ----
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+
+  padding: .625rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-base);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// VARIANTS — Solid Colors
+// ============================================
+
+// ---- Primary (Forest Green) ----
+.btn-primary {
+  background: color-mix(in srgb, var(--color-primary) 75%, var(--color-green) 25%);
+  color: var(--color-white);
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+    color: color-mix(in srgb, var(--color-white) 90%, transparent);
+    box-shadow: 0 4px 16px rgba(25, 56, 31, 0.3);
+  }
+  
+}
+
+// ---- Green (Mid Green) ----
+.btn-green {
+  background: var(--color-green);
+  color: color-mix(in srgb, var(--color-white) 90%, transparent);
+
+  &:hover:not(:disabled) {
+    background: var(--color-green-hover);
+    color: var(--color-white);
+    box-shadow: 0 4px 16px rgba(83, 164, 72, 0.3);
+  }
+}
+
+// ---- Yellow (Bright) ----
+.btn-yellow {
+  background: var(--color-yellow);
+  color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background: var(--color-yellow-hover);
+    box-shadow: 0 4px 16px rgba(237, 231, 44, 0.3);
+  }
+
+}
+
+// ---- Orange (Alert) ----
+.btn-orange {
+  background: var(--color-orange);
+  color: color-mix(in srgb, var(--color-white) 55%, var(--color-yellow) 45%);
+
+  &:hover:not(:disabled) {
+    background: var(--color-orange-hover);
+    color: var(--color-white);
+    box-shadow: 0 4px 16px rgba(237, 79, 47, 0.3);
+  }
+  
+}
+
+// ============================================
+// VARIANTS — Outline
+// ============================================
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary-light);
+    background: var(--color-green-tint);
+  }
+}
+
+.btn-outline-green {
+  background: transparent;
+  border: 2px solid var(--color-green);
+  color: var(--color-green);
+
+  &:hover:not(:disabled) {
+    background: var(--color-green-tint);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+// ============================================
+// SIZES
+// ============================================
+.btn-sm {
+  padding: 6px 16px;
+  font-size: var(--font-size-xs);
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: var(--font-size-base);
+}
+
+// ============================================
+// MODIFIERS
+// ============================================
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-icon {
+  padding: 10px;
+  border-radius: var(--radius-full);
+  aspect-ratio: 1;
+}
+
+// ============================================
+// SEMANTIC ALIASES
+// ============================================
+.signup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 24px;
+  background: var(--color-yellow);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: all var(--transition-base);
+
+  &:hover {
+    background: var(--color-yellow-hover);
+    transform: translateY(-2px);
+  }
+}
+
+.login-btn,
+.register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 20px;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+
+// ============================================
+// SUBMIT BUTTON
+// ============================================
+.btn-submit,
+.cart-checkout,
+.checkout-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+
+  width: 100%;
+  // padding: 12px 20px;
+
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+
+  color: var(--color-white);
+  background: var(--color-green);
+  border: none;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+
+  &:hover {
+    background: var(--color-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(83, 164, 72, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+}
+
+// ============================================
+// BUTTONS WITH ICONS
+// ============================================
+.cart-checkout,
+.checkout-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  text-align: center;
+
+  span {
+    font-size: 0.95em;
+    line-height: 1;
+    transition: transform var(--transition-base);
+  }
+
+}
+
+// Arrow slides right on hover
+.cart-checkout:hover span {
+  transform: translateX(3px);
+}
+
+// Checkmark scales on hover
+.checkout-order:hover span {
+  transform: scale(1.15);
+}

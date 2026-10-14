@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search - FoodCart™ Stores — Premium Kitchen Staples</title>
+        <link rel="stylesheet" href="assets/fonteawesome-6.5.2-all.min.css" media="all">
+        <script type="module" src="/src/js/foodcart_hd.js"></script>
+        <script type="module" src="/src/js/search-page.js"></script>
+    </head>
+    
+    <div id="header-placeholder" class=" sticky-top"></div>
+
+        <main class="main" >
+
+            <!-- ============================================ -->
+            <!-- PAGE: SEARCH DISPLAY  -->
+            <!-- ============================================ -->
+            <section class="page-content">
+
+                <div class="page-content-inner container">
+
+                <h2 class="page-title" id="searchTitle">Search</h2>
+
+                <p class="search-status" id="searchStatus" aria-live="polite"></p>
+
+                <div class="products-grid search-grid" id="searchResults" hidden></div>
+
+                <section id="searchPagesWrap" class="search-pages" hidden>
+                <h3 class="search-pages__heading">Site pages</h3>
+                <div id="searchPages" class="search-pages__list"></div>
+                </section>
+
+                <div class="search-empty search-grid" id="searchEmpty" hidden>
+
+                    <p class="search-empty-title">No results found</p>
+                    
+                    <p class="search-empty-text">
+                        We couldn't find anything for <strong id="searchEmptyQuery"></strong>.
+                        Try a different term, <a href="mailto:hello@terranova.example">contact us</a> for assistance or
+                        <a href="catalogue.html">browse the catalogue</a>.
+                    </p>
+
+                </div>
+
+                </div>
+
+            </section>
+        </main>
+            
+    <div id="footer-placeholder"></div>
+    
+    <!-- A single, reusable script -->
+    <script src="loader.js"></script>
+
+</html>    

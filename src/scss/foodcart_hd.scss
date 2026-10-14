@@ -1,0 +1,43 @@
+// ============================================
+// FOODCART™ MAIN STYLESHEET
+// ============================================
+
+    //--- 1. Core - Variables
+    @use 'abstracts/root';
+    @use 'abstracts/fonts';
+    
+    //--- 2. Foundation - Tools
+    @use 'base/reset';
+    @use 'base/global';
+    @use 'base/typography';
+    @use 'base/utils';
+
+    //--- 3. Components - UI
+    @use 'components/buttons';
+    @use 'components/badges';
+    @use 'components/products';
+    @use 'components/cards';
+    @use 'components/mini-cart';
+    @use 'components/forms';
+    @use 'components/auth-overlay';
+
+    //--- 4. Layout - Structure
+    @use 'layout/header';
+    @use 'layout/hero';
+    @use 'layout/footer';
+
+    // ---- Pages ----
+    @use 'pages/home';
+    @use 'pages/pdp';
+    @use 'pages/pages';
+    @use 'pages/shop';
+    @use 'pages/cart';
+    @use 'pages/checkout';
+    @use 'pages/account';
+    @use 'pages/testimonials';
+    @use 'pages/faqs';
+    @use 'pages/search';
+
+    // ---- Modules ----
+    @use 'modules/wholesale-mode';
+    @use 'modules/visibility';

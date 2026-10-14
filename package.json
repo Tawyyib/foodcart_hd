@@ -1,0 +1,38 @@
+{
+  "name": "foodcart_hd",
+  "version": "1.0.0",
+  "description": "Foodcart High Fidelity Mockup",
+  "type": "module",
+  "main": "src/js/foodcart_hd.js",
+  "scripts": {
+    "dev": "vite",
+    "build:catalogue": "node build/build-catalogue.mjs",
+    "build": "npm run build:catalogue && vite build",
+    "preview": "vite preview",
+    "clean": "node -e \"fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('node_modules', { recursive: true, force: true });\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tawyyib/foodcart_hd.git"
+  },
+  "keywords": [
+    "foodcart",
+    "ecommerce",
+    "vite",
+    "scss"
+  ],
+  "author": "Tawyyib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tawyyib/foodcart_hd/issues"
+  },
+  "homepage": "https://github.com/Tawyyib/foodcart_hd#readme",
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "sass": "^1.104.1",
+    "vite": "^8.3.0"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true
+  }
+}

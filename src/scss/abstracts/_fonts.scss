@@ -1,0 +1,30 @@
+// ============================================
+// FONTS — @font-face Declarations
+// ============================================
+// Loads Neulis Alt from local assets.
+// Vite handles hashing and copying to dist/assets/fonts/
+// ============================================
+
+@font-face {
+  font-family: 'Neulis Alt';
+  src: url('../fonts/NeulisAlt-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neulis Alt';
+  src: url('../fonts/NeulisAlt-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neulis Alt';
+  src: url('../fonts/NeulisAlt-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

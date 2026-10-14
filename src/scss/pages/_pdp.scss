@@ -1,0 +1,585 @@
+// ============================================
+// PDP (Product Detail Page)
+// ============================================
+.pdp-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.pdp-main h2,
+.pdp-main .mobile-title {
+  display: flex;
+  // font-size: 1.875rem;
+}
+
+.pdp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+// ============================================
+// GALLERY
+// ============================================
+.pdp-gallery {
+  order: 2;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+}
+
+.pdp-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  aspect-ratio: 1;
+  width: 100%;
+
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+
+  color: var(--color-text-muted);
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  img,
+  .img {
+    object-fit:contain;
+    aspect-ratio: 4 / 3;
+    
+    transition: transform var(--transition-slow);
+
+  }
+
+  .label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+}
+
+.thumbnail-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  // grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-sm);
+
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.thumbnail-grid .thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1;
+  width: 80px;
+  height: 80px;
+
+  background: var(--color-background);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+
+  transition: border-color var(--transition-fast);
+
+  &.active,
+  &:hover {
+    border-color: var(--color-green);
+  }
+
+  img,
+  .thumb {
+    object-fit:contain;
+    width: 70%;
+    aspect-ratio: 1;
+  }
+
+}
+
+// ============================================
+// SUMMARY
+// ============================================
+.pdp-summary {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+  
+}
+
+.pdp-summary h2.title {
+  font-size: 2rem;
+  display: none;
+}
+
+.pdp-price-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  border-bottom: 1px dotted var(--color-border);
+}
+
+.pdp-price-meta .meta-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+}
+
+.pdp-summary .price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+
+  font-family: var(--font-family-brand);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-heading);
+
+  .label {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+
+}
+
+.pdp-summary .stock-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  width: max-content;
+
+  background: var(--color-green-tint);
+
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+
+  &.in-stock {
+    color: var(--color-success-text);
+  }
+
+  &.low-stock {
+    color: var(--color-warning-text);
+  }
+
+  &.out-of-stock {
+    color: var(--color-danger-text);
+  }
+}
+
+.pdp-summary .wholesale-prompt {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+
+  padding: 10px 14px;
+
+  background: var(--color-yellow-tint);
+  border-radius: var(--radius-md);
+
+  font-size: .9375rem;
+  color: var(--color-text);
+
+  a {
+    color: var(--color-orange);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-orange-hover);
+      text-decoration: underline;
+    }
+
+  }
+  
+}
+
+.pdp-summary .overview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  h4,
+  .title {
+    font-size: .9375rem;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .short-desc {
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 0;
+  }
+  
+}
+
+.pdp-summary .variant-selection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  padding: var(--spacing-md) 0;
+  border-top: 1px dotted var(--color-border);
+  border-bottom: 1px dotted var(--color-border);
+}
+
+.pdp-summary .variation-selector {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  .selector-label {
+    padding: var(--spacing-md) var(--spacing-base);
+
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-family-brand);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-normal);
+    text-transform: uppercase;
+
+    background: var(--color-yellow-tint);
+    border-radius: var(--radius-xs);
+  }
+
+  .selector-wrap {
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xs);
+
+    .select {
+      display: inline-block;
+      border: none;
+      background: transparent;
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      outline: none;
+      cursor: pointer;
+    }
+
+  }
+  
+}
+
+.pdp-summary .variant-unit-price {
+  font-family: var(--font-size-md);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-heading);
+}
+
+.pdp-summary .variant-unit-count {
+  font-family: var(--font-fsmily);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-transform: capitalize;
+  color: var(--color-heading);
+}
+
+.pdp-summary .sku {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.pdp-summary .qty-add {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.qty-input {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-direction: row;
+
+  label,
+  .qty-label {
+    padding: var(--spacing-md) var(--spacing-base);
+
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-family-brand);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+
+    background: var(--color-yellow-tint);
+    border-radius: var(--radius-xs);  
+  }
+
+  input {
+    padding: 10px;
+    width: 70px;
+
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    text-align: center;
+    font-family: var(--font-family-ui);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+  }
+
+}
+
+.qty-add .btn {
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+}
+
+.qty-add .moq {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-orange);
+}
+
+.pdp-summary-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.delivery-note {
+  padding: 8px 0;
+
+  background: var(--color-background);
+  border-radius: var(--radius-sm);
+
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+}
+
+// ============================================
+// PDP TABS
+// ============================================
+.roduct-tabs {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+
+  @media (min-width: 876px) {
+    grid-column: 1 / -1;
+  }
+}
+
+.tab-navs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-bottom: var(--spacing-md);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    border-bottom: 2px solid var(--color-border);
+    gap: 0;
+  }
+}
+
+.tab-btn {
+  padding: 12px;
+
+  background: var(--color-background);
+  border: none;
+  border-radius: var(--radius-sm);
+
+  text-align: left;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  &.active {
+    background: var(--color-surface);
+    color: var(--color-green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+
+  @media (min-width: 768px) {
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+
+    &.active {
+      background: transparent;
+      border-bottom-color: var(--color-green);
+      box-shadow: none;
+    }
+
+  }
+
+}
+
+.tab-panel {
+  display: none;
+  color: var(--color-text-light);
+  line-height: 1.65;
+
+  &.active {
+    display: block;
+  }
+
+  h4 {
+    font-size: var(--font-size-base);
+    color: var(--color-heading);
+    margin: 0 0 var(--spacing-sm);
+  }
+
+}
+
+// --- MOBILE/RESPONSIVE --- //
+@media screen and ( min-width: 476px ) {
+
+  .pdp-main h2,
+  .pdp-main .mobile-title {
+    display: flex;
+    font-size: 1.875rem;
+  }
+
+  .thumbnail-grid .thumbnail {
+    width: 120px;
+    height: 120px;
+  }
+
+}
+
+@media screen and ( min-width: 876px ) {
+    
+  .pdp-main h2,
+  .pdp-main .mobile-title {
+    display: none;
+  }
+
+  .pdp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+  }
+
+  .pdp-gallery  {
+    order: unset;
+    position: sticky;
+    top: 90px;
+  }
+
+  
+  .pdp-summary {
+    order: unset;
+  }
+  
+  .pdp-summary h2.title {
+    display: block;
+  }
+
+}
+
+/* ============================================
+   PDP SUMMARY — CLEANUP
+   ============================================ */
+
+/* Hide wholesale elements in retail mode and vice versa.
+   (These rules likely already exist; keep whatever you have.) */
+
+.moq[hidden] {
+  display: none;
+}
+
+/* Single qty input */
+.qty-add .qty-count {
+  width: 4rem;
+  text-align: center;
+}
+
+/* Bulk cross-link */
+.bulk-upsell {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--color-border, #ddd);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--color-surface-2, rgba(0, 0, 0, 0.02));
+
+  a {
+    color: var(--color-primary, #0a5);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+
+/* ============================================
+   PDP SUMMARY — CLEANUP
+   ============================================ */
+
+/* Hide wholesale elements in retail mode and vice versa.
+   (These rules likely already exist; keep whatever you have.) */
+
+.moq[hidden] {
+  display: none;
+}
+
+/* Single qty input */
+.qty-add .qty-count {
+  width: 4rem;
+  text-align: center;
+}
+
+/* Bulk cross-link */
+.bulk-upsell {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--color-border, #ddd);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--color-surface-2, rgba(0, 0, 0, 0.02));
+
+  a {
+    color: var(--color-primary, #0a5);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}

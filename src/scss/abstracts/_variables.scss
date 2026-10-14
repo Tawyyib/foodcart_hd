@@ -1,0 +1,94 @@
+// ============================================
+// FOODCART™ — BRAND DESIGN SYSTEM (RAW VARIABLES)
+// ============================================
+
+// ---- Primary Brand Palette ----
+$color-primary:      #19381f;
+$color-green:        #a2d35e;
+$color-white:        #ffffff;
+
+// ---- Secondary Brand Palette ----
+$color-mid-green:    #53a448;
+$color-yellow:       #ede72c;
+$color-orange:       #ed4f2f;
+
+// ---- Global Shade Palette ----
+$color-black:        #000000;
+
+// ---- Neutral Palette (Light) ----
+$color-bg-light:         #ffffff;
+$color-surface-light:    #f5f8f2;
+$color-picture-light:    #f9ffff;
+$color-border-light:     #dbe1d8;
+$color-text-light:       #1a2e1f;
+$color-text-muted-light: #4a6b52;
+
+// ---- Neutral Palette (Dark) ----
+$color-bg-dark:         #0d1710;
+$color-surface-dark:    #142419;
+$color-picture-dark:    #0c1d12;
+$color-border-dark:     #223c2a;
+$color-text-dark:       #f1f5f9;
+$color-text-muted-dark: #94a3b8;
+
+// ---- Status ----
+$color-success: #53a448;
+$color-warning: #ede72c;
+$color-danger:  #ed4f2f;
+
+// ---- Typography ----
+$font-family-brand: 'Neulis Alt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-ui:    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+$font-weight-normal:   400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+
+$font-size-xs:   0.625rem;
+$font-size-sm:   0.75rem;
+$font-size-md:   0.875rem;
+$font-size-base: 1rem;
+$font-size-lg:   1.25rem;
+$font-size-xl:   1.75rem;
+$font-size-2xl:  2.125rem;
+$font-size-3xl:  2.75rem;
+
+// ---- Spacing ----
+$spacing-xs:  .25rem;
+$spacing-sm:  .5rem;
+$spacing-md:  .75rem;
+$spacing-base:  1.125rem;
+$spacing-lg:  1.5rem;
+$spacing-xl:  2rem;
+$spacing-2xl: 2.5rem;
+$spacing-3xl: 3.125rem;
+
+// ---- Radius ----
+$radius-xs:   .25rem;
+$radius-sm:   .5rem;
+$radius-md:   .75rem;
+$radius-lg:   1rem;
+$radius-xl:   1.5rem;
+$radius-full: 100%;
+
+// ---- Transitions ----
+$transition-fast: 0.15s ease;
+$transition-base: 0.25s ease;
+$transition-slow: 0.4s ease;
+
+// ---- Breakpoints ----
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1280px;
+
+// ---- Layout ----
+$container-max: 1280px;
+
+// ---- Z-index ----
+$z-header:      1000;
+$z-backdrop:    1040;
+$z-modal:       1080;
+$z-back-to-top: 9999;

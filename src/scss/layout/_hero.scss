@@ -1,0 +1,322 @@
+// ============================================
+// HERO
+// ============================================
+// Split hero with two views:
+//   - Retail (Shoppers)
+//   - Wholesale (Wholesalers)
+//
+// Mobile: stacked, toggle bar
+// Desktop: side-by-side, no toggle
+// Uses CSS custom properties for theming.
+// ============================================
+
+.hero {
+  padding: var(--spacing-2xl) var(--spacing-base);
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    #1e293b 100%
+  );
+
+  [data-theme="dark"] & {
+    background: linear-gradient(
+      135deg,
+      #0d1710 0%,
+      #142419 100%
+    );
+  }
+
+  @media screen and (min-width: 428px) {
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;    
+  }
+
+  @media screen and (min-width: 640px) {
+    padding-right: 2.75rem;
+    padding-left: 2.75rem;        
+  }
+
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-xl);
+
+  text-align: center;
+  position: relative;
+
+  max-width: 1280px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 0;
+
+  color: var(--color-white);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    min-height: 500px;
+    gap: var(--spacing-2xl);
+
+    text-align: left;
+  }
+
+}
+
+// ============================================
+// HERO VIEWS
+// ============================================
+.hero-view {
+  display: none;
+
+  &.show,
+  &#hero-guest-view.show {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
+
+// ============================================
+// HERO COLUMNS
+// ============================================
+.hero-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex: 1;
+  }
+
+  h1 {
+    font-family: var(--font-family-brand);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  h2 {
+    font-family: var(--font-family-brand);
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  p {
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      width: max-content;
+    }
+  }
+}
+
+// ============================================
+// HERO TAGS
+// ============================================
+.hero-col .tag,
+.tag {
+  display: none;
+  width: max-content;
+
+  padding: 6px 14px;
+
+  font-family: var(--font-family-brand);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  border-radius: var(--radius-md);
+
+  @media (min-width: 768px) {
+    display: inline-block;
+  }
+
+}
+
+.tag-retail {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.tag-wholesale {
+  background: var(--color-yellow);
+  color: var(--color-primary);
+}
+
+// ============================================
+// RETAIL COLUMN
+// ============================================
+.hero-col.retail {
+  // Base styling already handled above
+}
+
+// ============================================
+// WHOLESALE COLUMN
+// ============================================
+.hero-col.wholesale {
+  @media (min-width: 768px) {
+    padding: var(--spacing-xl);
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  [data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+// ============================================
+// HERO TOGGLE BAR (Mobile)
+// ============================================
+.hero-toggle-bar {
+  display: flex;
+
+  position: absolute;
+  bottom: var(--spacing-sm);
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 4px;
+
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hero-toggle-btn {
+  flex: 1;
+
+  padding: 10px 16px;
+
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-family-brand);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &.retail.active {
+    background: var(--color-green);
+    color: var(--color-white);
+  }
+
+  &.wholesale.active {
+    background: var(--color-yellow);
+    color: var(--color-primary);
+  }
+
+  &:hover:not(.active) {
+    color: var(--color-white);
+  }
+}
+
+// ============================================
+// MOBILE VISIBILITY TOGGLES
+// ============================================
+@media (max-width: 767px) {
+  .hero-col.wholesale {
+    display: none;
+  }
+
+  .hero-col.mobile-show {
+    display: flex !important;
+  }
+
+  .hero-col.mobile-hide {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-col.wholesale {
+    display: flex;
+  }
+
+  // Remove mobile-only state classes on desktop
+  .hero-col.mobile-show,
+  .hero-col.mobile-hide {
+    display: flex !important;
+  }
+}
+
+// ============================================
+// LOGGED-IN VARIANT (Full-width banner)
+// ============================================
+.hero-col.full-width-banner {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+
+  @media (min-width: 768px) {
+    width: 90%;
+    max-width: 700px;
+  }
+}
+
+// ============================================
+// HERO (Legacy Support — for old markup)
+// ============================================
+.hero-inner > .hero-col {
+  // Ensures children align properly when not wrapped in .hero-view
+}
+
+// ============================================
+// HERO TAGS (Legacy Support)
+// ============================================
+.hero-col .tag.tag-retail {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.hero-col .tag.tag-wholesale {
+  background: var(--color-yellow);
+  color: var(--color-primary);
+}
